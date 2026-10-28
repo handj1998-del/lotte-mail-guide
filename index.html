@@ -1,0 +1,2058 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-CQuOjbYJjVu81DJwUq8B9JO4VZmW0y6s4WI4Cvc20Mw='; style-src 'sha256-AnzzzoFgUP6YDfxpOcPzOW0SLAH+hKPEj2dDxLy2Jhg='; img-src data:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>안내 메일 작성 · 롯데렌터카 김해공항</title>
+<style>:root{
+  --red:#e31c23; --red-d:#b8141a; --red-l:#fdecec;
+  --bg:#f4f4f6; --card:#fff; --text:#1d1d1f; --muted:#6b6b72; --line:#dedee4;
+  --warn:#7a4f00; --warn-bg:#fff6e0; --ok:#137333; --err:#c5221f;
+  --r:12px;
+  font-family:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR","NanumGothic",system-ui,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}
+[hidden]{display:none!important}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+button,input,select,textarea{font:inherit;color:inherit}
+code,kbd{background:#efeff3;border-radius:5px;padding:1px 5px;font-size:.88em;font-family:Consolas,"D2Coding",monospace}
+kbd{border:1px solid #d3d3da;border-bottom-width:2px;background:#fafafa}
+:focus-visible{outline:3px solid rgba(227,28,35,.55);outline-offset:2px}
+
+.appbar{position:sticky;top:0;z-index:20;background:var(--red);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.appbar-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:8px 20px;min-height:58px}
+.brand{display:flex;gap:10px;align-items:center}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:#fff;color:var(--red);display:grid;place-items:center;font-size:19px;font-weight:800}
+.brand-title{font-weight:800;font-size:18px;letter-spacing:-.3px}
+.brand-sub{font-size:12px;opacity:.92}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{border:0;background:transparent;color:#fff;padding:8px 16px;border-radius:9px;font-weight:700;cursor:pointer;opacity:.85}
+.tab:hover{background:rgba(255,255,255,.14);opacity:1}
+.tab[aria-current="page"]{background:#fff;color:var(--red);opacity:1}
+.tab kbd{background:transparent;border:0;color:inherit;opacity:.7;font-size:11px;padding:0 0 0 4px}
+.tab:focus-visible{outline-color:#fff}
+
+main{max-width:1240px;margin:0 auto;padding:16px 20px 40px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:16px;align-items:start}
+.col-right{position:sticky;top:74px}
+@media (max-width:980px){.grid{grid-template-columns:1fr}.col-right{position:static}}
+.card{background:var(--card);border-radius:var(--r);padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 2px rgba(0,0,0,.06);border:1px solid #ececf0}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.card-title{margin:0;font-size:15px;font-weight:800}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:4px 2px 12px}
+.section-title{font-size:21px;font-weight:800;margin:0;letter-spacing:-.4px}
+
+.label{display:block;font-weight:700;font-size:13px;margin:12px 0 5px;color:#333}
+.label:first-child{margin-top:0}
+.req{color:var(--red)}
+.opt{color:var(--muted);font-weight:500}
+.input{width:100%;min-height:40px;border:1.5px solid var(--line);border-radius:9px;padding:8px 11px;background:#fff;font-size:15px;outline:none;transition:border-color .12s}
+.input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,28,35,.12)}
+.input.invalid{border-color:#d93025;background:#fff8f8}
+.input.valid{border-color:#34a853}
+.input.unused{background:#fafafb;color:#777}
+select.input{font-weight:700;cursor:pointer}
+.textarea{min-height:300px;resize:vertical;line-height:1.6;font-family:inherit}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 12px}
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}
+@media (max-width:640px){.cols,.cols2{grid-template-columns:1fr}}
+.dt{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:6px}
+.dt .input{min-width:0;padding:8px 6px}
+.dt-out{font-size:13px;margin:5px 2px 0;min-height:1.3em;color:var(--muted)}
+.dt-out b{color:var(--text)}
+.field-msg{min-height:1.3em;margin:4px 2px 0;font-size:13px}
+.field-msg.err{color:var(--err)}.field-msg.ok{color:var(--ok)}
+.hint{color:var(--muted);font-size:13px;margin:8px 2px}
+.small{font-size:12.5px}.center{text-align:center}.muted{color:var(--muted)}
+.linkbtn{background:none;border:0;color:var(--red);text-decoration:underline;padding:0;cursor:pointer;font-weight:700}
+.quick{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.quick button{min-height:28px;padding:2px 10px;border-radius:99px;border:1px solid var(--line);background:#fafafa;font-size:12.5px;cursor:pointer}
+.quick button:hover{border-color:var(--red);color:var(--red)}
+.unused-note{font-weight:500;color:#999;font-size:11.5px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 16px;border-radius:9px;border:1.5px solid transparent;background:#eee;font-weight:700;font-size:14.5px;text-decoration:none;cursor:pointer;user-select:none;color:var(--text);white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-d)}
+.btn-outline{background:#fff;border-color:var(--red);color:var(--red)}
+.btn-outline:hover{background:var(--red-l)}
+.btn-ghost{background:#fff;color:#444;border-color:var(--line)}
+.btn-ghost:hover{border-color:#bbb}
+.btn-danger-ghost{background:#fff;color:#d93025;border-color:#f3c1bd}
+.btn-danger-ghost:hover{background:#fff5f4}
+.btn-sm{min-height:32px;padding:4px 11px;font-size:13px}
+.btn-xl{min-height:50px;font-size:16.5px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.row .btn{flex:1}
+.ok-flash{background:#e6f4ea!important;border-color:#34a853!important;color:var(--ok)!important}
+
+.pv-block{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.pv-head{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#f7f7f9;padding:6px 8px 6px 12px;border-bottom:1px solid var(--line)}
+.pv-label{font-size:12.5px;font-weight:800;color:#555}
+.pv-content{padding:10px 12px;white-space:pre-wrap;min-height:1.6em}
+.pv-subject{font-weight:700}
+.pv-body{min-height:220px;max-height:52vh;overflow:auto;line-height:1.7}
+.pv-content .ph-empty{background:#ffe1e1;color:var(--err);border-radius:4px;padding:0 2px;font-weight:700}
+.pv-content .ph-filled{background:#fff6c2;border-radius:3px}
+.warn{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:9px 12px;font-size:13.5px;margin:0 0 10px}
+.warn div+div{margin-top:3px}
+.actions{display:grid;grid-template-columns:1fr;gap:8px}
+.open-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;margin-top:8px;align-items:center}
+.owa-host{min-height:40px;font-size:13px;font-weight:600}
+.owa-note{margin-top:6px}
+.ext-box{border:1px dashed #e9a2a4;border-radius:10px;padding:8px 12px;margin:8px 0;background:#fffafa}
+.ext-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.ext-steps{margin:6px 0 8px;padding-left:20px;color:#444}
+.ext-steps li{margin:2px 0}
+@media (max-width:640px){.open-row{grid-template-columns:1fr}}
+.lang-pill{display:inline-block;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:800;background:#e8eefc;color:#1a46a8;vertical-align:1px}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.chip{min-height:30px;padding:2px 10px;border-radius:99px;border:1px solid var(--line);background:#fafafa;font-size:13px;cursor:pointer;font-weight:600}
+.chip:hover{border-color:var(--red)}
+.chip.add{border-style:dashed;color:var(--red);border-color:var(--red)}
+.chip.fmt{font-weight:900}
+.tag{display:inline-block;padding:1px 9px;border-radius:99px;background:#f0f0f3;font-size:12.5px;font-weight:600}
+.tag.custom{background:#fff1d6}
+
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.toolbar .input{width:auto;min-width:200px}
+.tpl-list,.hist-list{list-style:none;margin:0 0 14px;padding:0}
+.tpl-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.tpl-item{background:#fff;border-radius:var(--r);padding:14px;box-shadow:0 1px 2px rgba(0,0,0,.06);border:2px solid #ececf0;display:flex;flex-direction:column}
+.tpl-item.selected{border-color:var(--red)}
+.tpl-top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.tpl-name{font-weight:800;font-size:16px;flex:1}
+.tpl-subject{font-size:13px;font-weight:700;color:#333;margin-bottom:4px}
+.badge-ex{background:#ffe3a3;color:#7a4b00;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:800}
+.badge-sel{background:var(--red);color:#fff;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:800}
+.tpl-body{color:#555;font-size:13px;white-space:pre-wrap;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px;flex:1}
+.tpl-btns{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:6px}
+.tpl-btns .btn{padding:4px;font-size:13px;min-height:34px}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+
+.notice{background:#fff;border-left:4px solid var(--red);border-radius:10px;padding:8px 14px;margin-bottom:12px;font-size:13.5px}
+.notice p{margin:5px 0}
+.hist-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--r);overflow:hidden;font-size:14px}
+.hist-table th,.hist-table td{padding:9px 10px;border-bottom:1px solid #eee;text-align:left;vertical-align:middle}
+.hist-table th{background:#f7f7f9;font-size:12.5px;color:#555}
+.hist-table td.num{white-space:nowrap;color:var(--muted);font-size:12.5px}
+
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-card{background:#fff;border-radius:14px;padding:20px 22px;width:100%;max-width:520px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.modal-title{margin:0 0 8px;font-size:17px}
+.modal-msg{font-size:14.5px;color:#333;white-space:pre-wrap;margin-bottom:10px;max-height:55vh;overflow:auto}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px}
+.modal-btns .btn{min-width:90px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:rgba(30,30,30,.93);color:#fff;padding:11px 18px;border-radius:10px;z-index:60;font-size:14.5px;max-width:90vw;text-align:center}
+.banner{background:#fff;border:1.5px solid var(--red);border-radius:10px;padding:9px 14px;margin-bottom:14px;font-size:13.5px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.banner p{margin:0}
+.banner-warn{border-color:#e0a100;background:var(--warn-bg);color:#5c3d00}
+.dropzone{position:fixed;inset:0;z-index:70;background:rgba(227,28,35,.12);border:4px dashed var(--red);display:grid;place-items:center;font-size:22px;font-weight:800;color:var(--red);pointer-events:none}
+.footer{max-width:1240px;margin:0 auto;padding:0 20px 24px;color:var(--muted);font-size:12px;text-align:center}
+.m0{margin:0!important}.mt6{margin-top:6px!important}
+.kbd-inv{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.ph-filled{background:#fff6c2;border-radius:3px}
+.ph-empty-legend{color:var(--err);font-weight:700}
+.dt-wrap{max-width:440px}
+.paste-card{border-color:#f3c1bd}
+.paste-box{min-height:70px;resize:vertical;font-size:13.5px;font-family:inherit}
+.paste-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.check{display:inline-flex;gap:6px;align-items:center;cursor:pointer;color:#444}
+.paste-result{background:#f7faf7;border:1px solid #cfe6d4;border-radius:10px;padding:8px 12px;margin-top:10px;font-size:13.5px}
+.pr-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.pr-list{list-style:none;margin:0;padding:0}
+.pr-list li{padding:3px 0}
+.pr-ok b{color:var(--ok)}.pr-miss{color:var(--muted)}.pr-miss b{color:var(--err)}.pr-skip b{color:var(--warn)}.pr-have b{color:var(--ok)}.pr-have{color:var(--muted)}
+.pr-multi{display:flex;gap:6px;align-items:center;margin:3px 0 2px 18px}
+.pr-pick{width:auto;min-height:30px;padding:2px 8px;font-size:13px}
+.pr-hint{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:6px 10px;margin:6px 0}
+.pr-note{color:#555;margin:4px 0}
+.input.autofilled{background:#eefbf1;border-color:#34a853}
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div class="appbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">@</span>
+      <div>
+        <div class="brand-title">안내 메일 작성</div>
+        <div class="brand-sub">롯데렌터카 김해공항 · 업무용 (오프라인)</div>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="메뉴">
+      <button type="button" class="tab" data-view="compose" aria-current="page" title="Alt+1">메일 작성<kbd>Alt+1</kbd></button>
+      <button type="button" class="tab" data-view="templates" title="Alt+2">템플릿<kbd>Alt+2</kbd></button>
+      <button type="button" class="tab" data-view="history" title="Alt+3">작성 기록<kbd>Alt+3</kbd></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ========== 작성 ========== -->
+  <section id="view-compose" class="view" aria-labelledby="h-compose">
+    <h1 id="h-compose" class="sr-only">메일 작성</h1>
+    <div id="storageBanner" class="banner banner-warn" hidden>
+      <p><b>이 브라우저에서는 데이터를 저장할 수 없습니다.</b> 템플릿·설정·기록이 창을 닫으면 사라집니다. Chrome 또는 Edge에서 파일을 열어 주세요.</p>
+    </div>
+    <div id="exampleBanner" class="banner" hidden>
+      <p><b>‘예시’ 템플릿은 샘플 문구입니다.</b> 템플릿 탭에서 실제 안내 문구로 수정하거나 새로 만들어 사용하세요.</p>
+      <span class="row m0">
+        <button type="button" class="btn btn-outline btn-sm" data-goto="templates">템플릿 관리</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-dismiss="example">닫기</button>
+      </span>
+    </div>
+
+    <div class="grid">
+      <div class="col-left">
+        <div class="card">
+          <label class="label" for="tplSelect">템플릿 선택</label>
+          <select id="tplSelect" class="input"></select>
+          <p id="tplEmpty" class="hint" hidden>템플릿이 없습니다. <button type="button" class="linkbtn" data-goto="templates">템플릿 탭</button>에서 먼저 만들어 주세요.</p>
+          <p id="tplLangInfo" class="hint small"></p>
+        </div>
+
+        <div class="card paste-card">
+          <div class="card-head">
+            <h2 class="card-title"><label for="pasteBox">붙여넣기 자동 채우기</label></h2>
+            <span class="hint small m0">이메일·이름·계약번호(·대여 일시)를 찾아 채웁니다</span>
+          </div>
+          <textarea id="pasteBox" class="input paste-box" rows="3" autocomplete="off" spellcheck="false" placeholder="예약 화면의 입력칸(고객명·계약번호·CDW 날짜·이메일)을 클릭 → Ctrl+A → Ctrl+C 한 뒤 여기에 Ctrl+V. 하나씩 나눠 붙여넣어도 앞의 값은 그대로 남습니다. 화면을 드래그해 복사한 글도 됩니다."></textarea>
+          <div class="paste-row">
+            <button type="button" id="pasteRun" class="btn btn-outline btn-sm" title="입력창에서 Ctrl+Enter">자동 채우기</button>
+            <button type="button" id="pasteClear" class="btn btn-ghost btn-sm">지우기</button>
+            <label class="check small"><input type="checkbox" id="titleCase"> 영문 이름 첫 글자만 대문자 (HONG GILDONG → Hong Gildong)</label>
+          </div>
+          <div id="pasteResult" class="paste-result" aria-live="polite" hidden></div>
+          <p class="hint small">붙여넣은 글은 이 PC에도 저장하지 않으며, 채운 뒤 바로 지웁니다. 이미지(스크린샷)는 읽을 수 없습니다.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h2 class="card-title">받는 사람 · 고객 정보</h2>
+            <button type="button" id="clearFields" class="btn btn-ghost btn-sm" title="고객 입력 내용 지우기">입력 지우기</button>
+          </div>
+          <label class="label" for="email">받는 사람 이메일 <span class="req">*</span></label>
+          <input id="email" class="input" type="email" inputmode="email" autocomplete="off" spellcheck="false" placeholder="customer@example.com" maxlength="254">
+          <p id="emailMsg" class="field-msg" aria-live="polite"></p>
+          <p id="emailSuggest" class="field-msg" hidden></p>
+          <div class="cols2">
+            <div><label class="label" for="f_이름">이름</label><input id="f_이름" class="input std" data-key="이름" type="text" autocomplete="off" maxlength="60" placeholder="예: John Smith"></div>
+            <div><label class="label" for="f_계약번호">계약번호</label><input id="f_계약번호" class="input std" data-key="계약번호" type="text" autocomplete="off" maxlength="40" placeholder="계약번호"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">대여 일시 <span class="unused-note" data-unused="대여일시"></span></h2>
+          <div class="dt-wrap">
+            <div class="dt"><input id="rentDate" class="input" type="date" aria-label="대여 날짜"><input id="rentTime" class="input" type="time" aria-label="대여 시간"></div>
+            <div class="quick"><button type="button" data-q="rent:today">오늘</button><button type="button" data-q="rent:tomorrow">내일</button><button type="button" data-q="rent:clear">지우기</button></div>
+            <p class="dt-out" id="rentOut"></p>
+          </div>
+          <p class="hint small">날짜만 입력하면 시간 없이 들어갑니다. 메일에는 템플릿 언어에 맞는 형식으로 들어갑니다.</p>
+        </div>
+
+        <div class="card" id="customCard" hidden>
+          <h2 class="card-title">추가 항목 <span class="opt">(이 템플릿의 사용자 항목)</span></h2>
+          <div id="customFields" class="cols2"></div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">지점 정보 <span class="opt">(이 PC에 저장됨)</span></h2>
+          <div class="cols2">
+            <div><label class="label" for="branch">지점 <span class="opt" id="branchLang"></span></label><input id="branch" class="input" type="text" maxlength="60" autocomplete="off"></div>
+            <div><label class="label" for="phone">문의전화</label><input id="phone" class="input" type="tel" inputmode="numeric" maxlength="16" autocomplete="off" placeholder="예: 055-000-0000"></div>
+          </div>
+          <p class="hint small"><code>{지점}</code>은 템플릿 언어별로 따로 저장됩니다. <code>{문의전화}</code>는 모든 템플릿에 공통입니다.</p>
+        </div>
+      </div>
+
+      <div class="col-right">
+        <div class="card">
+          <div class="card-head">
+            <h2 class="card-title">미리보기 <span id="pvLang" class="lang-pill"></span></h2>
+            <span class="hint small m0">값이 들어간 곳은 <span class="ph-filled">노랑</span>, 빈 항목은 <span class="ph-empty-legend">빨강</span></span>
+          </div>
+          <div class="pv-block">
+            <div class="pv-head"><span class="pv-label">받는 사람</span><button type="button" id="copyTo" class="btn btn-outline btn-sm">받는사람 복사</button></div>
+            <div id="pvTo" class="pv-content"></div>
+          </div>
+          <div class="pv-block">
+            <div class="pv-head"><span class="pv-label">제목</span><button type="button" id="copySubject" class="btn btn-outline btn-sm">제목 복사</button></div>
+            <div id="pvSubject" class="pv-content pv-subject" aria-live="polite"></div>
+          </div>
+          <div class="pv-block">
+            <div class="pv-head"><span class="pv-label">본문</span><button type="button" id="copyBody" class="btn btn-outline btn-sm" title="서식 없는 텍스트로 복사">본문 복사</button></div>
+            <div id="pvBody" class="pv-content pv-body"></div>
+          </div>
+          <div id="warnBox" class="warn" hidden aria-live="polite"></div>
+          <div class="actions">
+            <button type="button" id="copyAll" class="btn btn-primary btn-xl" title="Ctrl+Enter">전체 복사 (본문 서식 포함) <kbd class="kbd-inv">Ctrl+Enter</kbd></button>
+          </div>
+          <div class="open-row">
+            <button type="button" id="openOwa" class="btn btn-outline">Outlook 웹으로 열기</button>
+            <label class="sr-only" for="owaHost">Outlook 계정 종류</label>
+            <select id="owaHost" class="input owa-host" title="Outlook 웹 계정 종류 (이 PC에 저장됨)">
+              <option value="office">회사/학교 계정 (outlook.office.com)</option>
+              <option value="live">개인 계정 (outlook.live.com)</option>
+            </select>
+            <button type="button" id="openMailto" class="btn btn-ghost">mailto로 열기</button>
+          </div>
+          <p class="hint small owa-note" id="owaNote">‘Outlook 웹으로 열기’는 <b>전용 Outlook 탭 하나</b>를 계속 다시 쓰며, 누를 때마다 그 탭이 받는 사람·제목·본문(텍스트, 서식 없음)이 채워진 <b>새 작성 창으로 바뀝니다</b>(그 탭에서 쓰던 내용은 저장되지 않을 수 있으니 먼저 보내거나 임시 저장하세요). <b>이 브라우저에서 Outlook에 로그인되어 있어야</b> 하며, 본문이 길면 잘릴 수 있으니 그때는 복사 버튼을 사용하세요. 보내기는 Outlook에서 직접 누릅니다.</p>
+          <div class="ext-box" id="appBox" hidden>
+            <div class="ext-head"><b>Outlook으로 보내기 준비</b> <span class="hint small m0">서식(굵게·링크) 그대로 넣기 · 자동으로 보내지 않습니다</span></div>
+            <ol class="ext-steps small">
+              <li><b>Outlook 웹 + 본문 복사</b>를 누르면 본문이 복사되고, 브라우저에 받는 사람·제목이 채워진 새 메일 창이 열립니다.</li>
+              <li>본문 칸을 클릭하고 <kbd>Ctrl</kbd>+<kbd>V</kbd> 로 본문에 붙여넣기 하세요.</li>
+              <li>내용을 확인하고 Outlook에서 직접 <b>보내기</b>를 누릅니다.</li>
+            </ol>
+            <button type="button" id="appOwa" class="btn btn-primary">Outlook 웹 + 본문 복사</button>
+            <button type="button" id="appEml" class="btn btn-outline" title="PC에 설치된 Outlook 프로그램에 서식 있는 작성 창을 엽니다">Outlook(PC 프로그램)으로 열기</button>
+          </div>
+          <div class="ext-box" id="extBox">
+            <div class="ext-head"><b>확장 프로그램으로 넣기</b> <span class="hint small m0">이미 열린 Outlook 웹 작성 창에 받는 사람·제목·본문(서식 포함)을 넣습니다</span></div>
+            <ol class="ext-steps small">
+              <li>Outlook 웹에서 <b>새 메일</b>을 엽니다. (확장 프로그램 ‘롯데 안내메일 넣기’ 설치 필요 — 사용방법.txt 참고)</li>
+              <li>아래 <b>확장 프로그램용 복사</b>를 누릅니다.</li>
+              <li>Outlook 탭의 오른쪽 아래 <b>안내메일 넣기</b> 버튼(또는 <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>)을 누릅니다.</li>
+              <li>들어간 내용을 확인하고 Outlook에서 직접 <b>보내기</b>를 누릅니다. (확장 프로그램은 절대 자동으로 보내지 않습니다)</li>
+            </ol>
+            <button type="button" id="copyExt" class="btn btn-outline">확장 프로그램용 복사</button>
+          </div>
+          <p class="hint small">
+            <b>사용 순서:</b> 웹메일 ‘메일 쓰기’ → <b>받는사람 복사</b> → 받는 사람 칸에 붙여넣기(<kbd>Ctrl</kbd>+<kbd>V</kbd>) → <b>제목 복사</b> → 제목 칸에 붙여넣기 → <b>전체 복사</b> → 본문 칸에 붙여넣기.<br>
+            ‘전체 복사’는 본문을 서식(줄바꿈·굵게) 있는 형태와 일반 텍스트 두 가지로 함께 복사합니다. 서식이 이상하게 붙으면 ‘본문 복사’(텍스트만)를 사용하세요.<br>
+            ‘mailto로 열기’는 웹메일이 아니라 <b>PC의 기본 메일 프로그램</b>을 엽니다. Windows ‘메일’ 앱이 계정 추가를 요구하면 사용방법.txt의 기본 앱 설정 팁을 보거나 ‘Outlook 웹으로 열기’를 사용하세요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 템플릿 ========== -->
+  <section id="view-templates" class="view" hidden aria-labelledby="h-tpl">
+    <div class="section-head">
+      <h1 id="h-tpl" class="section-title">템플릿</h1>
+      <button type="button" id="newTpl" class="btn btn-primary">+ 새 템플릿</button>
+    </div>
+    <div class="toolbar">
+      <label for="langFilter" class="label m0">언어</label>
+      <select id="langFilter" class="input"></select>
+      <span class="hint small m0">제목·본문에 <code>{이름}</code> <code>{계약번호}</code> <code>{대여일시}</code> <code>{지점}</code> <code>{문의전화}</code> 또는 <code>{원하는항목}</code>을 넣으면 작성 화면에서 자동으로 채워집니다.</span>
+    </div>
+    <ul id="tplList" class="tpl-list"></ul>
+
+    <div class="card">
+      <h2 class="card-title">양식 공유 · 백업</h2>
+      <p class="hint">‘양식 공유’를 누르면 모든 템플릿이 <b>JSON 파일 하나</b>로 다운로드됩니다. 이 파일을 웹메일·메신저로 다른 직원에게 보내면, 받은 직원은 ‘가져오기’ 또는 파일을 이 화면에 끌어다 놓아 추가할 수 있습니다. (작성 기록·지점 설정은 포함되지 않습니다)</p>
+      <div class="row">
+        <button type="button" id="shareBtn" class="btn btn-primary">양식 공유 (파일 만들기)</button>
+        <button type="button" id="exportBtn" class="btn btn-outline">내보내기 (백업 JSON)</button>
+      </div>
+      <div class="row">
+        <button type="button" id="importAddBtn" class="btn btn-outline">가져오기 (추가)</button>
+        <button type="button" id="importReplaceBtn" class="btn btn-danger-ghost">가져오기 (전체 교체)</button>
+        <input id="importFile" type="file" accept=".json,application/json" class="sr-only" tabindex="-1" aria-hidden="true">
+      </div>
+      <p class="hint small">데이터는 이 PC의 이 브라우저 안에만 저장됩니다. 브라우저 방문 기록·사이트 데이터를 지우면 템플릿도 지워지니 내보내기로 백업해 두세요.</p>
+      <button type="button" id="restoreExamples" class="btn btn-ghost btn-sm">예시 템플릿 다시 추가</button>
+    </div>
+  </section>
+
+  <!-- ========== 템플릿 편집 ========== -->
+  <section id="view-editor" class="view" hidden aria-labelledby="h-edit">
+    <div class="section-head">
+      <h1 id="h-edit" class="section-title">템플릿 편집</h1>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="cols2">
+          <div><label class="label" for="edName">템플릿 이름 (직원용) <span class="req">*</span></label>
+          <input id="edName" class="input" type="text" maxlength="40" placeholder="예: 공항 픽업 안내"></div>
+          <div><label class="label" for="edLang">메일 언어 <span class="req">*</span></label>
+          <select id="edLang" class="input"></select></div>
+        </div>
+        <label class="label" for="edSubject">제목 <span class="req">*</span></label>
+        <div class="chips" id="subjectChips" aria-label="제목에 항목 넣기"></div>
+        <input id="edSubject" class="input" type="text" maxlength="200" placeholder="[Lotte Rent-a-Car] Pickup Guide - {계약번호} / {이름}">
+        <label class="label" for="edBody">본문 <span class="req">*</span></label>
+        <div class="chips" id="bodyChips" aria-label="본문에 항목 넣기"></div>
+        <textarea id="edBody" class="input textarea" rows="14" placeholder="Dear {이름}, ..."></textarea>
+        <p class="hint small"><code>**굵게**</code>처럼 별표 두 개로 감싸면 ‘전체 복사’ 때 굵은 글씨가 됩니다. 줄바꿈은 그대로 유지됩니다.</p>
+        <div><span class="label mt6">자동 인식된 입력 항목</span><span id="edDetected" class="chips"></span></div>
+        <p id="edMsg" class="field-msg" aria-live="polite"></p>
+        <div class="row">
+          <button type="button" id="edCancel" class="btn btn-ghost btn-xl">취소 (Esc)</button>
+          <button type="button" id="edSave" class="btn btn-primary btn-xl">저장 (Ctrl+S)</button>
+        </div>
+        <button type="button" id="edDelete" class="btn btn-danger-ghost btn-sm" hidden>이 템플릿 삭제</button>
+      </div>
+      <div class="card col-right">
+        <h2 class="card-title">편집 미리보기 <span class="opt">(항목은 빈 상태로 표시)</span></h2>
+        <div class="pv-block"><div class="pv-head"><span class="pv-label">제목</span></div><div id="edPvSubject" class="pv-content pv-subject"></div></div>
+        <div class="pv-block"><div class="pv-head"><span class="pv-label">본문</span></div><div id="edPvBody" class="pv-content pv-body"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 기록 ========== -->
+  <section id="view-history" class="view" hidden aria-labelledby="h-hist">
+    <div class="section-head">
+      <h1 id="h-hist" class="section-title">작성 기록</h1>
+      <button type="button" id="clearHistory" class="btn btn-danger-ghost btn-sm">기록 전체 삭제</button>
+    </div>
+    <div class="notice">
+      <p><b>보관 기간 90일</b> — 90일이 지난 기록은 이 화면을 열 때, 창으로 돌아올 때(포커스), 사용 중 1시간마다 자동 삭제됩니다.</p>
+      <p>기록에는 <b>받는 사람(가린 주소)·이름·템플릿·시간</b>만 저장되며 메일 내용은 저장하지 않습니다. 이 PC의 이 브라우저에만 있고 어디로도 전송되지 않습니다.</p>
+      <p>기록 시점은 ‘전체 복사/본문 복사/mailto’를 누른 때이며 실제 발송 여부와 다를 수 있습니다. 웹메일의 ‘보낸 메일함’은 이 도구가 지우지 않습니다.</p>
+      <p id="purgeInfo" class="small muted"></p>
+    </div>
+    <div class="toolbar"><input id="histSearch" class="input" type="search" placeholder="이름·주소·템플릿 검색" autocomplete="off"><span id="histCount" class="hint small m0"></span></div>
+    <table class="hist-table">
+      <thead><tr><th>시간</th><th>받는 사람</th><th>이름</th><th>템플릿</th><th>방식</th><th>자동 삭제</th><th><span class="sr-only">삭제</span></th></tr></thead>
+      <tbody id="histBody"></tbody>
+    </table>
+  </section>
+</main>
+<p class="footer" id="footer"></p>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalMsg">
+    <h2 id="modalTitle" class="modal-title"></h2>
+    <div id="modalMsg" class="modal-msg"></div>
+    <input id="modalInput" class="input" type="text" hidden>
+    <div id="modalBtns" class="modal-btns"></div>
+  </div>
+</div>
+<div id="dropzone" class="dropzone" hidden>양식 파일(JSON)을 여기에 놓으세요</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script>(function () {
+  "use strict";
+  var APP_VERSION = "1.5.0";
+  var KEYS = {
+    tpl: "lrcmail.templates.v1", hist: "lrcmail.history.v1", seeded: "lrcmail.seeded.v1",
+    sel: "lrcmail.selected.v1", purge: "lrcmail.lastPurge.v1", phone: "lrcmail.phone.v1",
+    branch: "lrcmail.branch.v1", owaHost: "lrcmail.owaHost.v1", titleCase: "lrcmail.titleCase.v1", dismiss: "lrcmail.dismiss.v1", filter: "lrcmail.langFilter.v1"
+  };
+  var FILE_APP = "gimhae-email-templates", FILE_VERSION = 1;
+  var RETENTION_DAYS = 90, DAY_MS = 864e5, RETENTION_MS = RETENTION_DAYS * DAY_MS, PURGE_INTERVAL_MS = 36e5;
+  // v1.1.0: 차량번호·반납일시는 기본 항목에서 제외. 옛 템플릿/파일에 있으면 사용자 항목(직접 입력칸)으로 취급.
+  var STD_FIELDS = ["이름", "계약번호", "대여일시", "지점", "문의전화"];
+  var PH_RE = /\{([^{}\n]{1,30})\}/g;
+  var NAME_MAX = 40, SUBJECT_MAX = 200, BODY_MAX = 10000, IMPORT_MAX_CHARS = 2 * 1024 * 1024, IMPORT_MAX_ITEMS = 500;
+  var CTRL_RE = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function hm(d) { return pad(d.getHours()) + ":" + pad(d.getMinutes()); }
+
+  /* ---------- 템플릿 언어 (확장: 여기에 항목만 추가) ---------- */
+  var EN_WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var EN_MO = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var ZH_WD = "日一二三四五六", KO_WD = "일월화수목금토";
+  var LANGS = {
+    "en": {
+      label: "영어 (English)", short: "EN", htmlLang: "en",
+      branchDefault: "Gimhae Int'l Airport Branch",
+      fmt: function (d, hasTime) { return EN_WD[d.getDay()] + ", " + EN_MO[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + (hasTime ? " " + hm(d) : ""); }
+    },
+    "zh-Hant": {
+      label: "중국어 번체 (繁體中文)", short: "繁中", htmlLang: "zh-Hant",
+      branchDefault: "金海國際機場營業所",
+      fmt: function (d, hasTime) { return d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日(週" + ZH_WD[d.getDay()] + ")" + (hasTime ? " " + hm(d) : ""); }
+    }
+  };
+  var LANG_ORDER = ["en", "zh-Hant"];
+  var DEFAULT_LANG = "en";
+  function langOf(t) { return t && LANGS[t.lang] ? t.lang : DEFAULT_LANG; }
+  function fmtKo(d, hasTime) { return d.getFullYear() + "년 " + (d.getMonth() + 1) + "월 " + d.getDate() + "일(" + KO_WD[d.getDay()] + ")" + (hasTime ? " " + hm(d) : ""); }
+
+  var EXAMPLES = [
+    { name: "공항 픽업 안내 (영문)", lang: "en",
+      subject: "[Lotte Rent-a-Car] Pickup Guide - {계약번호} / {이름}",
+      body: "Dear {이름},\n\nThank you for choosing Lotte Rent-a-Car {지점}.\nHere are the details of your rental.\n\n**Contract No.:** {계약번호}\n**Pickup date & time:** {대여일시}\n\nAfter arriving at Gimhae International Airport, please visit our counter to pick up your car.\nPlease bring your passport, international driving permit and the credit card used for the booking.\n\nIf you have any questions, please call us at {문의전화}.\n\nBest regards,\nLotte Rent-a-Car {지점}" },
+    { name: "공항 픽업 안내 (번체)", lang: "zh-Hant",
+      subject: "[樂天租車] 取車說明 - {계약번호} / {이름}",
+      body: "{이름} 您好：\n\n感謝您選擇樂天租車 {지점}。\n您的租車資訊如下：\n\n**合約編號：** {계약번호}\n**取車時間：** {대여일시}\n\n抵達金海國際機場後，請至本公司櫃檯辦理取車手續。\n請攜帶護照、國際駕照及預約時使用的信用卡。\n\n如有任何問題，請來電 {문의전화}。\n\n樂天租車 {지점} 敬上" }
+  ];
+
+  /* ---------- 공통 ---------- */
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+  var storageOk = true;
+  try { var _k = "lrcmail.__t"; localStorage.setItem(_k, "1"); localStorage.removeItem(_k); } catch (e) { storageOk = false; }
+  var memStore = {};
+  function load(k, d) {
+    try { var v = storageOk ? localStorage.getItem(k) : memStore[k]; return v == null ? d : JSON.parse(v); } catch (e) { return d; }
+  }
+  function save(k, v) {
+    try { var s = JSON.stringify(v); if (storageOk) localStorage.setItem(k, s); else memStore[k] = s; return true; }
+    catch (e) { toast("저장 공간이 부족하거나 저장할 수 없습니다."); return false; }
+  }
+  function el(tag, attrs, children) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      var v = attrs[k];
+      if (k === "text") n.textContent = v;
+      else if (k === "class") n.className = v;
+      else if (k.slice(0, 2) === "on") n.addEventListener(k.slice(2), v);
+      else if (v !== undefined && v !== null && v !== false) n.setAttribute(k, v);
+    });
+    (children || []).forEach(function (c) { if (c != null) n.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return n;
+  }
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function fmtStamp(ts) { var d = new Date(ts); return d.getFullYear() + "." + pad(d.getMonth() + 1) + "." + pad(d.getDate()) + " " + hm(d); }
+  function ymd() { var d = new Date(); return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); }
+  function isoDate(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+
+  /* ---------- 날짜 ---------- */
+  function parseDT(dateStr, timeStr) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr || "");
+    if (!m) return null;
+    var t = /^(\d{2}):(\d{2})/.exec(timeStr || "");
+    var d = new Date(+m[1], +m[2] - 1, +m[3], t ? +t[1] : 0, t ? +t[2] : 0);
+    if (d.getMonth() !== +m[2] - 1) return null;
+    return { date: d, hasTime: !!t };
+  }
+  function formatDT(dateStr, timeStr, lang) {
+    var p = parseDT(dateStr, timeStr);
+    if (!p) return "";
+    return lang === "ko" ? fmtKo(p.date, p.hasTime) : (LANGS[lang] || LANGS[DEFAULT_LANG]).fmt(p.date, p.hasTime);
+  }
+
+  /* ---------- 전화 (SMS 앱과 동일 규칙) ---------- */
+  function formatKRPhone(raw) {
+    var d = String(raw || "").replace(/\D/g, ""), L = d.length;
+    if (!L) return "";
+    if (/^02/.test(d)) { if (L === 9) return d.slice(0, 2) + "-" + d.slice(2, 5) + "-" + d.slice(5); if (L === 10) return d.slice(0, 2) + "-" + d.slice(2, 6) + "-" + d.slice(6); return d; }
+    if (/^050\d/.test(d)) { if (L === 12) return d.slice(0, 4) + "-" + d.slice(4, 8) + "-" + d.slice(8); if (L === 11) return d.slice(0, 4) + "-" + d.slice(4, 7) + "-" + d.slice(7); return d; }
+    if (/^1[568]\d{2}/.test(d)) return L === 8 ? d.slice(0, 4) + "-" + d.slice(4) : d;
+    if (/^(070|010)/.test(d)) { if (L === 11) return d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7); if (L === 10 && d[1] === "7") return d.slice(0, 3) + "-" + d.slice(3, 6) + "-" + d.slice(6); return d; }
+    if (/^01[16789]/.test(d) || /^0(3[1-3]|4[1-4]|5[1-5]|6[1-4])/.test(d)) { if (L === 10) return d.slice(0, 3) + "-" + d.slice(3, 6) + "-" + d.slice(6); if (L === 11) return d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7); return d; }
+    return d;
+  }
+
+  /* ---------- 이메일 ---------- */
+  function normalizeEmail(s) {
+    s = String(s || "").replace(/\uFF20/g, "@").replace(/[\uFF0E\u3002]/g, ".");
+    var m = /<([^<>]+)>/.exec(s);
+    if (m) s = m[1];
+    s = s.replace(/^\s*mailto:/i, "").replace(/[\s\u200B\u00A0]+/g, "");
+    return s;
+  }
+  var LABEL = "[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?";
+  var EMAIL_RE = new RegExp("^([A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+)@(" + LABEL + "(?:\\." + LABEL + ")+)$");
+  function emailError(s) {
+    if (!s) return "empty";
+    if (s.length > 254) return "너무 깁니다 (최대 254자).";
+    var at = s.split("@").length - 1;
+    if (at === 0) return "@가 없습니다.";
+    if (at > 1) return "@가 두 개 이상입니다. 주소는 한 개만 입력하세요.";
+    var m = EMAIL_RE.exec(s);
+    if (!m) {
+      if (/[^\x21-\x7E]/.test(s)) return "한글·전각 문자나 허용되지 않는 문자가 있습니다.";
+      if (!/@.+\..+/.test(s)) return "도메인(예: gmail.com)이 올바르지 않습니다.";
+      return "이메일 형식이 올바르지 않습니다.";
+    }
+    var local = m[1], tld = m[2].split(".").pop();
+    if (local.length > 64) return "@ 앞부분이 너무 깁니다.";
+    if (local[0] === "." || local.slice(-1) === "." || local.indexOf("..") >= 0) return "@ 앞부분의 점(.) 위치가 올바르지 않습니다.";
+    if (!/^([A-Za-z]{2,63}|xn--[A-Za-z0-9-]{2,59})$/.test(tld)) return "도메인 끝부분(." + tld + ")이 올바르지 않습니다.";
+    return "";
+  }
+  function isValidEmail(s) { return emailError(normalizeEmail(s)) === ""; }
+  var DOMAIN_TYPOS = {
+    "naver.con": "naver.com", "naver.co": "naver.com", "naver.net": "naver.com", "nave.com": "naver.com", "naber.com": "naver.com",
+    "gmail.co": "gmail.com", "gmail.con": "gmail.com", "gmial.com": "gmail.com", "gmai.com": "gmail.com", "gamil.com": "gmail.com", "gmail.cm": "gmail.com", "gnail.com": "gmail.com",
+    "hanmail.ent": "hanmail.net", "hanmail.com": "hanmail.net", "daum.com": "daum.net",
+    "hotmail.co": "hotmail.com", "hotmial.com": "hotmail.com", "outlook.co": "outlook.com", "yahoo.co": "yahoo.com", "yaho.com": "yahoo.com",
+    "icloud.co": "icloud.com", "qq.co": "qq.com", "163.co": "163.com"
+  };
+  function emailSuggestion(s) {
+    var i = s.lastIndexOf("@");
+    if (i < 1) return "";
+    var dom = s.slice(i + 1).toLowerCase();
+    return DOMAIN_TYPOS[dom] ? s.slice(0, i + 1) + DOMAIN_TYPOS[dom] : "";
+  }
+  function maskEmail(s) {
+    var i = s.lastIndexOf("@");
+    if (i < 1) return "***";
+    var local = s.slice(0, i), keep = local.length <= 2 ? 1 : 2;
+    return local.slice(0, keep) + "***" + s.slice(i);
+  }
+
+  /* ---------- 템플릿 엔진 ---------- */
+  function extractFields(text) {
+    var out = [], m;
+    PH_RE.lastIndex = 0;
+    while ((m = PH_RE.exec(text || ""))) { var k = m[1].trim(); if (k && out.indexOf(k) < 0) out.push(k); }
+    return out;
+  }
+  function fieldsOf(t) {
+    if (!t) return [];
+    var f = extractFields(t.subject);
+    extractFields(t.body).forEach(function (k) { if (f.indexOf(k) < 0) f.push(k); });
+    return f;
+  }
+  function val(vals, k) { return String(vals[k] == null ? "" : vals[k]).replace(/[\r\n]+/g, " ").trim(); }
+  // 한 줄 단위 런: {text, bold, ph:{key, raw, value}}
+  function parseLines(text, vals, withBold) {
+    var phs = [];
+    var s = String(text || "").replace(/\r\n?/g, "\n").replace(PH_RE, function (m, k) {
+      k = k.trim(); phs.push({ key: k, raw: m, value: k ? val(vals, k) : "" });
+      return "\uE000" + (phs.length - 1) + "\uE001";
+    });
+    return s.split("\n").map(function (line) {
+      var segs = [], last = 0, m, re = /\*\*(?=\S)([^\n]*?\S)\*\*/g;
+      if (withBold) while ((m = re.exec(line))) {
+        if (m.index > last) segs.push({ t: line.slice(last, m.index), b: false });
+        segs.push({ t: m[1], b: true }); last = m.index + m[0].length;
+      }
+      if (last < line.length) segs.push({ t: line.slice(last), b: false });
+      var runs = [];
+      segs.forEach(function (sg) {
+        sg.t.split(/(\uE000\d+\uE001)/).forEach(function (part) {
+          if (!part) return;
+          var pm = /^\uE000(\d+)\uE001$/.exec(part);
+          runs.push(pm ? { ph: phs[+pm[1]], bold: sg.b } : { text: part, bold: sg.b });
+        });
+      });
+      return runs;
+    });
+  }
+  function runText(r) { return r.ph ? (r.ph.value || r.ph.raw) : r.text; }
+  function linesToPlain(lines) { return lines.map(function (l) { return l.map(runText).join(""); }).join("\n"); }
+  // v1.4.2 자동 링크: http(s)://, www. 주소(ASCII만 — 붙은 한글·한자는 제외), 끝 문장부호·짝 없는 ) 제외
+  var URL_RE = /(?:https?:\/\/|www\.)[A-Za-z0-9\-._~:\/?#\[\]@!$&'()*+,;=%]+/gi;
+  function splitUrls(text) {
+    var out = [], last = 0, m; URL_RE.lastIndex = 0;
+    while ((m = URL_RE.exec(text))) {
+      var u = m[0], st = m.index;
+      if (st > 0 && /[A-Za-z0-9_@.\-\/]/.test(text.charAt(st - 1))) continue; // 단어 중간(예: abcwww.)·이메일 안은 제외
+      for (;;) {
+        var c = u.charAt(u.length - 1);
+        if (/[.,;:!?'*]/.test(c)) { u = u.slice(0, -1); continue; }
+        if (c === ")" && (u.split("(").length < u.split(")").length)) { u = u.slice(0, -1); continue; }
+        if (c === "]" && (u.split("[").length < u.split("]").length)) { u = u.slice(0, -1); continue; }
+        break;
+      }
+      var href = /^www\./i.test(u) ? "https://" + u : u;
+      if (!/^https?:\/\/[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*(:\d+)?([\/?#]|$)/i.test(href) || !/\./.test(u.replace(/^https?:\/\//i, "").split(/[\/?#:]/)[0])) continue;
+      if (st > last) out.push({ text: text.slice(last, st) });
+      out.push({ text: u, href: href }); last = st + u.length; URL_RE.lastIndex = last;
+    }
+    if (last < text.length) out.push({ text: text.slice(last) });
+    return out;
+  }
+  function linkifyHtml(text) {
+    return splitUrls(text).map(function (p) {
+      var h = escapeHtml(p.text);
+      return p.href ? '<a href="' + escapeHtml(p.href) + '">' + h + "</a>" : h;
+    }).join("");
+  }
+  function linkifyDom(parent, text) {
+    splitUrls(text).forEach(function (p) {
+      parent.appendChild(p.href ? el("a", { href: p.href, target: "_blank", rel: "noopener noreferrer", text: p.text }) : document.createTextNode(p.text));
+    });
+  }
+  function linesToHtml(lines, lang) {
+    var L = LANGS[lang] || LANGS[DEFAULT_LANG];
+    var inner = lines.map(function (l) {
+      return l.map(function (r) { var h = linkifyHtml(runText(r)); return r.bold ? "<b>" + h + "</b>" : h; }).join("");
+    }).join("<br>\n");
+    // 인라인 style은 넣지 않음: 웹메일 기본 글꼴을 따르고, 이 페이지의 CSP(style-src 해시)와도 충돌하지 않음
+    return '<div lang="' + escapeHtml(L.htmlLang) + '">' + inner + "</div>";
+  }
+  function linesToDom(box, lines, highlight) {
+    box.textContent = "";
+    lines.forEach(function (l, i) {
+      if (i) box.appendChild(document.createTextNode("\n"));
+      l.forEach(function (r) {
+        var node;
+        if (r.ph && highlight) { node = el("span", { class: r.ph.value ? "ph-filled" : "ph-empty" }); linkifyDom(node, runText(r)); }
+        else { node = document.createDocumentFragment(); linkifyDom(node, runText(r)); }
+        if (r.bold) { var b = el("b"); b.appendChild(node); node = b; }
+        box.appendChild(node);
+      });
+    });
+  }
+  function fillText(text, vals) { return linesToPlain(parseLines(text, vals, false)); }
+  function missingIn(text, vals) { return extractFields(text).filter(function (k) { return !val(vals, k); }); }
+
+  /* ---------- 상태 ---------- */
+  function makeExamples() {
+    return EXAMPLES.map(function (e) { return { id: uid(), name: e.name, lang: e.lang, subject: e.subject, body: e.body, example: true, updatedAt: Date.now() }; });
+  }
+  function sanitizeStored(list) {
+    if (!Array.isArray(list)) return null;
+    return list.filter(function (t) { return t && typeof t === "object" && typeof t.name === "string" && typeof t.subject === "string" && typeof t.body === "string"; })
+      .map(function (t) { return { id: typeof t.id === "string" ? t.id : uid(), name: t.name, lang: LANGS[t.lang] ? t.lang : DEFAULT_LANG, subject: t.subject, body: t.body, example: t.example === true, updatedAt: +t.updatedAt || Date.now() }; });
+  }
+  var templates = sanitizeStored(load(KEYS.tpl, null));
+  if (!templates) {
+    templates = [];
+    if (!load(KEYS.seeded, false)) { templates = makeExamples(); save(KEYS.seeded, true); }
+    save(KEYS.tpl, templates);
+  }
+  var history = load(KEYS.hist, []);
+  if (!Array.isArray(history)) history = [];
+  var selectedId = load(KEYS.sel, null);
+  var editingId = null, customVals = {}, exampleAck = {};
+  function saveTemplates() { save(KEYS.tpl, templates); }
+  function saveHistory() { save(KEYS.hist, history); }
+  function findTpl(id) { return templates.filter(function (x) { return x.id === id; })[0] || null; }
+  function getSelected() {
+    var t = findTpl(selectedId);
+    if (!t && templates.length) { t = templates[0]; selectedId = t.id; save(KEYS.sel, selectedId); }
+    return t;
+  }
+  function selectTpl(id) { selectedId = id; save(KEYS.sel, id); }
+  function branches() { var b = load(KEYS.branch, {}); return b && typeof b === "object" && !Array.isArray(b) ? b : {}; }
+  function branchFor(lang) { var b = branches(); return typeof b[lang] === "string" ? b[lang] : (LANGS[lang] || LANGS[DEFAULT_LANG]).branchDefault; }
+
+  /* ---------- 토스트·대화상자 ---------- */
+  var toastTimer;
+  function toast(msg) {
+    var t = $("#toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.hidden = true; }, 2600);
+  }
+  var activeDialogDone = null;
+  function dialog(opts) {
+    if (activeDialogDone) activeDialogDone(null);
+    return new Promise(function (resolve) {
+      var m = $("#modal"), inp = $("#modalInput"), box = $("#modalBtns"), prevFocus = document.activeElement;
+      $("#modalTitle").textContent = opts.title || "";
+      $("#modalMsg").textContent = opts.message || "";
+      inp.hidden = !opts.input; inp.value = opts.inputValue || ""; inp.placeholder = opts.inputPlaceholder || "";
+      box.textContent = "";
+      function done(v) {
+        if (activeDialogDone !== done) return;
+        activeDialogDone = null; m.hidden = true;
+        document.removeEventListener("keydown", onKey, true);
+        if (prevFocus && prevFocus.focus) try { prevFocus.focus(); } catch (e) {}
+        resolve(opts.input ? { value: v, input: inp.value.trim() } : v);
+      }
+      function onKey(e) {
+        if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); done(null); }
+        else if (e.key === "Enter" && opts.input && document.activeElement === inp) { e.preventDefault(); done(opts.buttons[opts.buttons.length - 1].value); }
+        else if (e.key === "Tab") {
+          var f = $$("#modal input:not([hidden]), #modal button");
+          if (!f.length) return;
+          var i = f.indexOf(document.activeElement);
+          if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+          else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+        }
+      }
+      var primaryBtn = null;
+      opts.buttons.forEach(function (b) {
+        var bt = el("button", { type: "button", class: "btn " + (b.cls || "btn-outline"), "data-value": String(b.value), text: b.label, onclick: function () { done(b.value); } });
+        if (b.cls === "btn-primary") primaryBtn = bt;
+        box.appendChild(bt);
+      });
+      m.onclick = function (e) { if (e.target === m) done(null); };
+      document.addEventListener("keydown", onKey, true);
+      activeDialogDone = done; m.hidden = false;
+      setTimeout(function () { if (opts.input) inp.focus(); else (primaryBtn || box.lastChild).focus(); }, 20);
+    });
+  }
+  function confirmDialog(title, message, okLabel) {
+    return dialog({ title: title, message: message, buttons: [{ label: "취소", value: false, cls: "btn-ghost" }, { label: okLabel || "확인", value: true, cls: "btn-primary" }] });
+  }
+  function alertDialog(title, message) { return dialog({ title: title, message: message, buttons: [{ label: "확인", value: true, cls: "btn-primary" }] }); }
+
+  /* ---------- 화면 전환 ---------- */
+  var currentView = "compose";
+  function showView(name) {
+    currentView = name;
+    ["compose", "templates", "editor", "history"].forEach(function (v) { $("#view-" + v).hidden = v !== name; });
+    $$(".tab").forEach(function (t) {
+      var on = t.getAttribute("data-view") === name || (name === "editor" && t.getAttribute("data-view") === "templates");
+      if (on) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current");
+    });
+    if (name === "compose") renderCompose();
+    if (name === "templates") renderTemplates();
+    if (name === "history") { purgeOld(); renderHistory(); }
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------- 작성 화면 ---------- */
+  function langLabel(l) { return (LANGS[l] || LANGS[DEFAULT_LANG]).label; }
+  function renderCompose() {
+    var sel = $("#tplSelect"); sel.textContent = "";
+    var t = getSelected();
+    LANG_ORDER.forEach(function (l) {
+      var list = templates.filter(function (x) { return langOf(x) === l; });
+      if (!list.length) return;
+      var g = el("optgroup", { label: langLabel(l) });
+      list.forEach(function (x) { g.appendChild(el("option", { value: x.id, text: (x.example ? "[예시] " : "") + x.name })); });
+      sel.appendChild(g);
+    });
+    sel.disabled = !templates.length;
+    $("#tplEmpty").hidden = !!templates.length;
+    if (t) sel.value = t.id;
+    $("#exampleBanner").hidden = !!load(KEYS.dismiss, {}).example || !templates.some(function (x) { return x.example; });
+    $("#storageBanner").hidden = storageOk;
+    renderBranch(); renderCustomFields(); updatePreview();
+  }
+  function renderBranch() {
+    var t = getSelected(), l = langOf(t);
+    $("#branch").value = branchFor(l);
+    $("#branchLang").textContent = "· " + langLabel(l) + "용";
+  }
+  function renderCustomFields() {
+    var box = $("#customFields"); box.textContent = "";
+    var custom = fieldsOf(getSelected()).filter(function (k) { return STD_FIELDS.indexOf(k) < 0; });
+    $("#customCard").hidden = !custom.length;
+    custom.forEach(function (k, i) {
+      var id = "cf_" + i;
+      var inp = el("input", { id: id, class: "input", type: "text", "data-key": k, autocomplete: "off", maxlength: "200", placeholder: k + " 입력" });
+      inp.value = customVals[k] || "";
+      inp.addEventListener("input", function () { customVals[k] = inp.value; updatePreview(); });
+      box.appendChild(el("div", {}, [el("label", { class: "label", for: id, text: k }), inp]));
+    });
+  }
+  function collectVals(lang) {
+    var v = {};
+    Object.keys(customVals).forEach(function (k) { v[k] = customVals[k]; });
+    $$(".std").forEach(function (i) { v[i.getAttribute("data-key")] = i.value; });
+    v["대여일시"] = formatDT($("#rentDate").value, $("#rentTime").value, lang);
+    v["지점"] = $("#branch").value;
+    v["문의전화"] = $("#phone").value;
+    return v;
+  }
+  function compute() {
+    var t = getSelected(), lang = langOf(t), vals = collectVals(lang);
+    var email = normalizeEmail($("#email").value), err = emailError(email);
+    var subject = t ? fillText(t.subject, vals).replace(/\s*\n\s*/g, " ") : "";
+    var lines = t ? parseLines(t.body, vals, true) : [];
+    var fields = fieldsOf(t);
+    return {
+      template: t, lang: lang, vals: vals, email: email, emailErr: err, emailValid: err === "",
+      subject: subject, lines: lines, bodyText: linesToPlain(lines), bodyHtml: linesToHtml(lines, lang),
+      fields: fields,
+      missingSubject: t ? missingIn(t.subject, vals) : [], missingBody: t ? missingIn(t.body, vals) : [],
+      missing: fields.filter(function (k) { return !val(vals, k); })
+    };
+  }
+  function updatePreview() {
+    var r = compute(), t = r.template;
+    $("#pvLang").textContent = t ? (LANGS[r.lang].short) : "";
+    $("#tplLangInfo").textContent = t ? "메일 언어: " + langLabel(r.lang) + " · 사용 항목: " + (r.fields.length ? r.fields.join(", ") : "없음") : "";
+    // 받는 사람
+    var to = $("#pvTo"); to.textContent = "";
+    to.appendChild(r.email ? document.createTextNode(r.email) : el("span", { class: "ph-empty", text: "(이메일 미입력)" }));
+    // 제목·본문
+    var ps = $("#pvSubject");
+    if (t) linesToDom(ps, parseLines(t.subject, r.vals, false), true); else ps.textContent = "";
+    var pb = $("#pvBody");
+    if (t) linesToDom(pb, r.lines, true); else { pb.textContent = ""; pb.appendChild(el("span", { class: "muted", text: "템플릿을 선택하세요." })); }
+    // 날짜 표시 (직원 확인용 한국어 + 메일 값)
+    [["rent", "#rentDate", "#rentTime", "#rentOut", "대여일시"]].forEach(function (a) {
+      var o = $(a[3]); o.textContent = "";
+      var ko = formatDT($(a[1]).value, $(a[2]).value, "ko");
+      if (!ko) { o.textContent = "날짜를 선택하세요."; return; }
+      o.appendChild(el("b", { text: ko }));
+      o.appendChild(document.createTextNode(" → 메일: " + r.vals[a[4]]));
+    });
+    $$("[data-unused]").forEach(function (s) { s.textContent = t && r.fields.indexOf(s.getAttribute("data-unused")) < 0 ? "(이 템플릿에서 사용 안 함)" : ""; });
+    $$(".std").forEach(function (i) {
+      var used = !t || r.fields.indexOf(i.getAttribute("data-key")) >= 0;
+      i.classList.toggle("unused", !used);
+      i.title = used ? "" : "이 템플릿에서는 사용하지 않는 항목입니다";
+    });
+    // 경고
+    var warns = [];
+    if (r.missingSubject.length) warns.push("제목에 비어 있는 항목: " + r.missingSubject.join(", "));
+    if (r.missingBody.length) warns.push("본문에 비어 있는 항목: " + r.missingBody.join(", "));
+    if (r.missing.length) warns.push("채우지 않으면 {항목} 글자가 그대로 메일에 들어갑니다.");
+    if (t && t.example) warns.push("‘예시’ 템플릿입니다. 실제 안내 문구인지 확인하세요.");
+    var wb = $("#warnBox"); wb.textContent = "";
+    warns.forEach(function (w) { wb.appendChild(el("div", { text: "⚠ " + w })); });
+    wb.hidden = !warns.length;
+    // 이메일 메시지
+    var em = $("#email"), msg = $("#emailMsg"), sug = $("#emailSuggest");
+    em.classList.remove("invalid", "valid"); msg.className = "field-msg"; msg.textContent = "";
+    sug.hidden = true; sug.textContent = "";
+    if (r.email) {
+      if (r.emailValid) { em.classList.add("valid"); msg.classList.add("ok"); msg.textContent = "✓ 올바른 이메일 형식"; }
+      else { em.classList.add("invalid"); msg.classList.add("err"); msg.textContent = "이메일 주소를 확인하세요: " + r.emailErr; }
+      var s = emailSuggestion(r.email);
+      if (s) {
+        sug.hidden = false; sug.className = "field-msg";
+        sug.appendChild(document.createTextNode("혹시 "));
+        sug.appendChild(el("button", { type: "button", class: "linkbtn", id: "applySuggest", text: s, onclick: function () { $("#email").value = s; updatePreview(); $("#email").focus(); } }));
+        sug.appendChild(document.createTextNode(" 인가요?"));
+      }
+    }
+    return r;
+  }
+
+  /* ---------- 클립보드 ---------- */
+  function legacyCopy(text, html) {
+    var ta = el("textarea", { readonly: "" });
+    ta.style.position = "fixed"; ta.style.top = "-1000px"; ta.style.opacity = "0";
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    function onCopy(e) {
+      try { e.clipboardData.setData("text/plain", text); if (html) e.clipboardData.setData("text/html", html); e.preventDefault(); } catch (x) {}
+    }
+    document.addEventListener("copy", onCopy, true);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    document.removeEventListener("copy", onCopy, true);
+    ta.remove();
+    return ok;
+  }
+  function copyPlain(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text, null); });
+    }
+    return Promise.resolve(legacyCopy(text, null));
+  }
+  function copyRich(html, text) {
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+      var item;
+      try { item = new ClipboardItem({ "text/html": new Blob([html], { type: "text/html" }), "text/plain": new Blob([text], { type: "text/plain" }) }); }
+      catch (e) { return Promise.resolve(legacyCopy(text, html) ? "legacy" : false); }
+      return navigator.clipboard.write([item]).then(function () { return "rich"; }, function () { return legacyCopy(text, html) ? "legacy" : false; });
+    }
+    return Promise.resolve(legacyCopy(text, html) ? "legacy" : false);
+  }
+  function flash(btn, label) {
+    if (!btn) return;
+    var old = btn.getAttribute("data-label") || btn.innerHTML;
+    btn.setAttribute("data-label", old);
+    btn.classList.add("ok-flash"); btn.textContent = "✓ " + label;
+    clearTimeout(btn._ft);
+    btn._ft = setTimeout(function () { btn.classList.remove("ok-flash"); btn.innerHTML = btn.getAttribute("data-label"); btn.removeAttribute("data-label"); }, 1300);
+  }
+
+  /* ---------- 기록 ---------- */
+  function addHistory(r, method) {
+    if (!r.emailValid || !r.template) return false;
+    var masked = maskEmail(r.email), name = val(r.vals, "이름"), tname = r.template.name, now = Date.now();
+    var dup = history.filter(function (h) { return h.to === masked && h.name === name && h.template === tname && now - h.ts < 10 * 60 * 1000; })[0];
+    if (dup) {
+      dup.ts = now;
+      if ((dup.method || "").split(", ").indexOf(method) < 0) dup.method = (dup.method ? dup.method + ", " : "") + method;
+    } else history.unshift({ id: uid(), ts: now, to: masked, name: name, template: tname, lang: r.lang, method: method });
+    saveHistory();
+    return true;
+  }
+  function purgeOld() {
+    var cutoff = Date.now() - RETENTION_MS;
+    var cur = load(KEYS.hist, history);
+    history = Array.isArray(cur) ? cur : [];
+    var kept = history.filter(function (h) { return h && typeof h.ts === "number" && h.ts >= cutoff; });
+    var removed = history.length - kept.length;
+    history = kept;
+    if (removed) saveHistory();
+    save(KEYS.purge, { at: Date.now(), removed: removed });
+    if (currentView === "history") renderHistory();
+    return removed;
+  }
+  function renderHistory() {
+    var q = ($("#histSearch").value || "").trim().toLowerCase();
+    var list = history.slice().sort(function (a, b) { return b.ts - a.ts; }).filter(function (h) {
+      if (!q) return true;
+      return [h.to, h.name, h.template].some(function (x) { return String(x || "").toLowerCase().indexOf(q) >= 0; });
+    });
+    var tb = $("#histBody"); tb.textContent = "";
+    $("#histCount").textContent = q ? "검색 결과 " + list.length + "건 / 전체 " + history.length + "건" : "전체 " + history.length + "건";
+    $("#clearHistory").disabled = !history.length;
+    if (!list.length) tb.appendChild(el("tr", {}, [el("td", { colspan: "7", class: "empty", text: q ? "검색 결과가 없습니다." : "작성 기록이 없습니다." })]));
+    list.forEach(function (h) {
+      var left = Math.max(0, Math.ceil((h.ts + RETENTION_MS - Date.now()) / DAY_MS));
+      tb.appendChild(el("tr", { "data-id": h.id }, [
+        el("td", { class: "num", text: fmtStamp(h.ts) }),
+        el("td", { text: h.to || "" }),
+        el("td", { text: h.name || "" }),
+        el("td", {}, [LANGS[h.lang] ? el("span", { class: "lang-pill", text: LANGS[h.lang].short }) : null, " ", h.template || ""]),
+        el("td", { class: "num", text: h.method || "" }),
+        el("td", { class: "num", text: left + "일 후" }),
+        el("td", {}, [el("button", { type: "button", class: "btn btn-danger-ghost btn-sm", "data-act": "del", text: "삭제", "aria-label": "이 기록 삭제", onclick: function () {
+          confirmDialog("기록 삭제", "이 기록을 삭제할까요?", "삭제").then(function (ok) {
+            if (!ok) return;
+            history = history.filter(function (x) { return x.id !== h.id; }); saveHistory(); renderHistory(); toast("삭제했습니다.");
+          });
+        } })])
+      ]));
+    });
+    var p = load(KEYS.purge, null);
+    $("#purgeInfo").textContent = p ? "마지막 자동 정리: " + fmtStamp(p.at) + (p.removed ? " (" + p.removed + "건 삭제)" : " (삭제 대상 없음)") : "";
+  }
+  function clearHistory() {
+    if (!history.length) return Promise.resolve(false);
+    return confirmDialog("기록 전체 삭제", "작성 기록 " + history.length + "건을 모두 삭제할까요?\n되돌릴 수 없습니다.\n\n※ 웹메일 ‘보낸 메일함’의 메일은 삭제되지 않습니다.", "전체 삭제").then(function (ok) {
+      if (!ok) return false;
+      history = []; saveHistory(); renderHistory(); toast("기록을 모두 삭제했습니다."); return true;
+    });
+  }
+
+  /* ---------- 복사 동작 ---------- */
+  function guard(r, scope) {
+    if (!r.template) { toast("템플릿을 먼저 선택하세요."); return Promise.resolve(false); }
+    var miss = scope === "subject" ? r.missingSubject : scope === "body" ? r.missingBody : r.missing;
+    var p = Promise.resolve(true);
+    if (r.template.example && !exampleAck[r.template.id]) {
+      p = p.then(function () {
+        return confirmDialog("예시 템플릿입니다", "‘" + r.template.name + "’은(는) 샘플 문구입니다.\n실제 고객에게 보내도 되는 내용인지 확인하셨나요?", "확인했습니다").then(function (ok) { if (ok) exampleAck[r.template.id] = true; return ok; });
+      });
+    }
+    if (miss.length) p = p.then(function (ok) {
+      if (!ok) return false;
+      return confirmDialog("비어 있는 항목이 있습니다", (scope === "subject" ? "제목" : scope === "body" ? "본문" : "제목·본문") + "에 비어 있는 항목: " + miss.join(", ") + "\n그대로 진행하면 {항목} 글자가 메일에 남습니다. 계속할까요?", "그대로 진행");
+    });
+    return p;
+  }
+  function needEmailForAction(r) {
+    if (r.emailValid) return true;
+    toast(r.email ? "받는 사람 이메일 형식이 올바르지 않습니다." : "받는 사람 이메일을 입력하세요.");
+    $("#email").focus();
+    return false;
+  }
+  function onCopyTo() {
+    var r = updatePreview();
+    if (!needEmailForAction(r)) return Promise.resolve(false);
+    return copyPlain(r.email).then(function (ok) { if (ok) flash($("#copyTo"), "복사됨"); toast(ok ? "받는 사람 주소를 복사했습니다." : "복사에 실패했습니다."); return ok; });
+  }
+  function onCopySubject() {
+    var r = updatePreview();
+    return guard(r, "subject").then(function (go) {
+      if (!go) return false;
+      return copyPlain(r.subject).then(function (ok) { if (ok) flash($("#copySubject"), "복사됨"); toast(ok ? "제목을 복사했습니다." : "복사에 실패했습니다."); return ok; });
+    });
+  }
+  function recNote(r, method) { return addHistory(r, method) ? " · 기록 저장됨" : " (이메일 미입력 — 기록 안 함)"; }
+  function onCopyBody() {
+    var r = updatePreview();
+    return guard(r, "body").then(function (go) {
+      if (!go) return false;
+      return copyPlain(r.bodyText).then(function (ok) {
+        if (!ok) { toast("복사에 실패했습니다. 미리보기를 드래그해 직접 복사하세요."); return false; }
+        flash($("#copyBody"), "복사됨"); toast("본문(텍스트)을 복사했습니다" + recNote(r, "본문 복사")); return true;
+      });
+    });
+  }
+  function onCopyAll() {
+    var r = updatePreview();
+    return guard(r, "all").then(function (go) {
+      if (!go) return false;
+      return copyRich(r.bodyHtml, r.bodyText).then(function (res) {
+        if (!res) { toast("복사에 실패했습니다. ‘본문 복사’를 사용해 보세요."); return false; }
+        flash($("#copyAll"), "복사됨 — 웹메일 본문에 붙여넣기");
+        toast("본문을 서식 포함으로 복사했습니다" + recNote(r, "전체 복사"));
+        return res;
+      });
+    });
+  }
+  function buildMailto(email, subject, body) {
+    return "mailto:" + encodeURIComponent(email).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n"));
+  }
+  /* ---------- Outlook 웹 (deeplink) ---------- */
+  var OWA_HOSTS = { office: "outlook.office.com", live: "outlook.live.com" };
+  var OWA_URL_BUDGET = 1800;
+  function owaHostKey() { var h = load(KEYS.owaHost, "office"); return OWA_HOSTS[h] ? h : "office"; }
+  function buildOwaUrl(hostKey, to, subject, body) {
+    var host = OWA_HOSTS[hostKey] || OWA_HOSTS.office;
+    return "https://" + host + "/mail/deeplink/compose?to=" + encodeURIComponent(to) +
+      "&subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(String(body).replace(/\r\n?/g, "\n"));
+  }
+  // 같은 이름의 탭(lotte_owa_compose)을 다시 씀.
+  // - noopener를 주면 이름으로 탭을 다시 찾을 수 없어 매번 새 탭이 열림.
+  // - 연 직후 w.opener = null 로 연결을 끊는 방법도 시험했으나, Chrome/Edge는 연결이 끊긴 탭을
+  //   이름으로 다시 찾지도, 이동시키지도 못하게 해서(SecurityError) 탭 재사용이 불가능함.
+  // 그래서 opener 연결을 유지함(보안 절충). 위험: 열린 페이지가 window.opener 로 이 도구 탭을
+  // 다른 주소로 이동시킬 수 있음(reverse tabnabbing). 다만 서로 다른 출처라 이 도구의 내용·저장값은 읽을 수 없고,
+  // 여는 주소는 고정 목록(outlook.office.com / outlook.live.com)의 Microsoft 페이지뿐이며, file:// 라 리퍼러도 전송되지 않음.
+  // Outlook이 COOP 헤더로 연결을 끊으면 브라우저가 알아서 새 탭을 열 뿐(기능 저하만, 오류 없음).
+  var OWA_TAB_NAME = "lotte_owa_compose";
+  // 윈도우 프로그램(v1.5.0)에서는 window.lotteDesktop(preload)이 있어 기본 브라우저로 엶
+  var DESK = (typeof window !== "undefined" && window.lotteDesktop) || null;
+  function openWindow(url) {
+    if (DESK) { DESK.openExternal(url); return true; }
+    var w = null;
+    try { w = window.open(url, OWA_TAB_NAME); } catch (e) { w = null; }
+    if (w) {
+      try { w.focus(); } catch (e) {}
+      return true;
+    }
+    return false;
+  }
+  function onOwa() {
+    var r = updatePreview();
+    if (!needEmailForAction(r)) return Promise.resolve(false);
+    return guard(r, "all").then(function (go) {
+      if (!go) return false;
+      var url = buildOwaUrl(owaHostKey(), r.email, r.subject, r.bodyText);
+      var p = Promise.resolve("open");
+      if (url.length > OWA_URL_BUDGET) p = dialog({
+        title: "본문이 깁니다",
+        message: "Outlook 웹 주소 길이가 " + url.length + "자로 권장 한도(약 " + OWA_URL_BUDGET + "자)를 넘습니다. 본문이 잘리거나 열리지 않을 수 있습니다.\n\n복사 버튼(받는사람·제목·전체 복사)으로 붙여넣는 방법을 권장합니다.\n(Outlook 웹으로 열면 굵게 등 서식은 빠집니다)",
+        buttons: [{ label: "취소", value: null, cls: "btn-ghost" }, { label: "그래도 열기", value: "open", cls: "btn-outline" }, { label: "전체 복사 사용", value: "copy", cls: "btn-primary" }]
+      });
+      return p.then(function (v) {
+        if (v === "copy") return onCopyAll().then(function () { return "copy"; });
+        if (v !== "open") return false;
+        addHistory(r, "Outlook 웹");
+        var opened = api.openWindow(url);
+        toast(opened === false ? "팝업이 차단되었습니다. 브라우저 주소창 오른쪽의 팝업 차단 아이콘에서 허용해 주세요." : "Outlook 웹 탭에 새 작성 창을 엽니다. 로그인 상태와 내용을 확인한 뒤 보내세요.");
+        return url;
+      });
+    });
+  }
+  /* ---------- 확장 프로그램용 복사 (롯데 안내메일 넣기) ---------- */
+  var EXT_MARKER = "-----LOTTE-MAIL-v1-----", EXT_END = "-----END-LOTTE-MAIL-----";
+  function buildExtPayload(r) {
+    return EXT_MARKER + "\n" + JSON.stringify({ app: "gimhae-email-tool", v: 1, to: r.email, subject: r.subject, bodyText: r.bodyText, bodyHtml: r.bodyHtml }) + "\n" + EXT_END;
+  }
+  function onCopyExt() {
+    var r = updatePreview();
+    if (!needEmailForAction(r)) return Promise.resolve(false);
+    return guard(r, "all").then(function (go) {
+      if (!go) return false;
+      var payload = buildExtPayload(r);
+      return copyRich(r.bodyHtml, payload).then(function (res) {
+        if (!res) { toast("복사에 실패했습니다. 다시 시도하거나 다른 복사 버튼을 사용하세요."); return false; }
+        addHistory(r, "확장 프로그램");
+        flash($("#copyExt"), "복사됨 — Outlook 탭에서 ‘안내메일 넣기’");
+        toast("확장 프로그램용으로 복사했습니다. Outlook 웹 작성 창에서 ‘안내메일 넣기’를 누르세요.");
+        return payload;
+      });
+    });
+  }
+  function launch(href) { if (DESK) { DESK.openExternal(href); return; } var a = el("a", { href: href }); document.body.appendChild(a); a.click(); a.remove(); }
+  function onMailto() {
+    var r = updatePreview();
+    if (!needEmailForAction(r)) return Promise.resolve(false);
+    return guard(r, "all").then(function (go) {
+      if (!go) return false;
+      var href = buildMailto(r.email, r.subject, r.bodyText);
+      var p = Promise.resolve(true);
+      if (href.length > 1900) p = confirmDialog("본문이 깁니다", "메일 프로그램에 따라 긴 본문이 잘릴 수 있습니다. 열린 뒤 내용을 꼭 확인하세요.\n(굵게 등 서식은 mailto로는 전달되지 않습니다)", "열기");
+      return p.then(function (ok) {
+        if (!ok) return false;
+        addHistory(r, "mailto");
+        api.launch(href);
+        toast("기본 메일 프로그램을 엽니다. 열리지 않으면 복사 버튼을 사용하세요.");
+        return href;
+      });
+    });
+  }
+
+  /* ---------- 윈도우 프로그램 전용: 서식 복사 + Outlook 웹 새 메일 / Outlook 임시 메일(.eml) ---------- */
+  function onAppOwa() {
+    var r = updatePreview();
+    if (!needEmailForAction(r)) return Promise.resolve(false);
+    return guard(r, "all").then(function (go) {
+      if (!go) return false;
+      return copyRich(r.bodyHtml, r.bodyText).then(function (res) {
+        if (!res) { toast("복사에 실패했습니다. 다시 시도해 주세요."); return false; }
+        var url = buildOwaUrl(owaHostKey(), r.email, r.subject, "");
+        addHistory(r, "Outlook 웹(붙여넣기)");
+        api.openWindow(url);
+        flash($("#appOwa"), "복사됨 — 본문에 Ctrl+V");
+        dialog({ title: "본문을 붙여넣으세요", message: "브라우저에 Outlook 새 메일 창이 열립니다(받는 사람·제목 입력됨).\n\n본문 칸을 한 번 클릭하고 Ctrl+V 로 본문에 붙여넣기 하세요.\n(굵게·링크 서식이 그대로 들어갑니다)\n\n내용을 확인한 뒤 Outlook에서 직접 [보내기]를 누르세요. 이 프로그램은 메일을 보내지 않습니다.", buttons: [{ label: "확인", value: true, cls: "btn-primary" }] });
+        return url;
+      });
+    });
+  }
+  function onAppEml() {
+    var r = updatePreview();
+    if (!needEmailForAction(r)) return Promise.resolve(false);
+    return guard(r, "all").then(function (go) {
+      if (!go) return false;
+      return Promise.resolve(DESK.openEml({ to: r.email, subject: r.subject, html: r.bodyHtml, text: r.bodyText })).then(function (ok) {
+        if (!ok) { toast("Outlook(PC 프로그램)을 열지 못했습니다. ‘Outlook 웹 + 본문 복사’를 사용하세요."); return false; }
+        addHistory(r, "Outlook 임시 메일");
+        toast("Outlook(PC 프로그램)에 작성 창을 엽니다. 확인 후 직접 보내세요.");
+        return true;
+      });
+    });
+  }
+
+  /* ---------- 템플릿 목록 ---------- */
+  function renderTemplates() {
+    var fsel = $("#langFilter"), fv = load(KEYS.filter, "all");
+    fsel.textContent = "";
+    fsel.appendChild(el("option", { value: "all", text: "전체 (" + templates.length + ")" }));
+    LANG_ORDER.forEach(function (l) { fsel.appendChild(el("option", { value: l, text: langLabel(l) + " (" + templates.filter(function (x) { return langOf(x) === l; }).length + ")" })); });
+    if (fv !== "all" && !LANGS[fv]) fv = "all";
+    fsel.value = fv;
+    var ul = $("#tplList"); ul.textContent = "";
+    var sel = getSelected();
+    var list = templates.filter(function (t) { return fv === "all" || langOf(t) === fv; });
+    if (!list.length) ul.appendChild(el("li", { class: "empty", text: "템플릿이 없습니다. ‘+ 새 템플릿’으로 추가하세요." }));
+    list.forEach(function (t) {
+      var isSel = sel && sel.id === t.id;
+      ul.appendChild(el("li", { class: "tpl-item" + (isSel ? " selected" : ""), "data-id": t.id }, [
+        el("div", { class: "tpl-top" }, [
+          el("span", { class: "lang-pill", text: LANGS[langOf(t)].short }),
+          el("span", { class: "tpl-name", text: t.name }),
+          t.example ? el("span", { class: "badge-ex", text: "예시" }) : null,
+          isSel ? el("span", { class: "badge-sel", text: "선택됨" }) : null
+        ]),
+        el("div", { class: "tpl-subject", text: "제목: " + t.subject }),
+        el("div", { class: "tpl-body", text: t.body }),
+        el("div", { class: "tpl-btns" }, [
+          el("button", { type: "button", class: "btn btn-primary", "data-act": "use", text: "이걸로 작성", onclick: function () { selectTpl(t.id); showView("compose"); } }),
+          el("button", { type: "button", class: "btn btn-outline", "data-act": "edit", text: "수정", onclick: function () { openEditor(t.id); } }),
+          el("button", { type: "button", class: "btn btn-outline", "data-act": "dup", text: "복제", onclick: function () { duplicateTpl(t.id); } }),
+          el("button", { type: "button", class: "btn btn-danger-ghost", "data-act": "del", text: "삭제", onclick: function () { deleteTpl(t.id); } })
+        ])
+      ]));
+    });
+  }
+  function duplicateTpl(id) {
+    var t = findTpl(id); if (!t) return null;
+    var copy = { id: uid(), name: (t.name + " (복사본)").slice(0, NAME_MAX), lang: langOf(t), subject: t.subject, body: t.body, example: false, updatedAt: Date.now() };
+    templates.splice(templates.indexOf(t) + 1, 0, copy);
+    saveTemplates(); renderTemplates(); toast("복제했습니다."); return copy;
+  }
+  function deleteTpl(id) {
+    var t = findTpl(id); if (!t) return Promise.resolve(false);
+    return confirmDialog("템플릿 삭제", "‘" + t.name + "’ 템플릿을 삭제할까요?", "삭제").then(function (ok) {
+      if (!ok) return false;
+      templates = templates.filter(function (x) { return x.id !== id; });
+      if (selectedId === id) { selectedId = templates[0] ? templates[0].id : null; save(KEYS.sel, selectedId); }
+      saveTemplates(); renderTemplates(); toast("삭제했습니다."); return true;
+    });
+  }
+
+  /* ---------- 편집기 ---------- */
+  function openEditor(id) {
+    editingId = id || null;
+    var t = id ? findTpl(id) : null;
+    $("#h-edit").textContent = t ? "템플릿 수정" : "새 템플릿";
+    var ls = $("#edLang"); ls.textContent = "";
+    LANG_ORDER.forEach(function (l) { ls.appendChild(el("option", { value: l, text: langLabel(l) })); });
+    var f = load(KEYS.filter, "all");
+    ls.value = t ? langOf(t) : (LANGS[f] ? f : DEFAULT_LANG);
+    $("#edName").value = t ? t.name : "";
+    $("#edSubject").value = t ? t.subject : "";
+    $("#edBody").value = t ? t.body : "";
+    $("#edDelete").hidden = !t;
+    $("#edMsg").textContent = ""; $("#edMsg").className = "field-msg";
+    renderChips("#subjectChips", "#edSubject", false);
+    renderChips("#bodyChips", "#edBody", true);
+    updateEditorInfo();
+    showView("editor");
+    setTimeout(function () { $("#edName").focus(); }, 30);
+  }
+  function renderChips(boxSel, targetSel, withFmt) {
+    var box = $(boxSel); box.textContent = "";
+    STD_FIELDS.forEach(function (k) {
+      box.appendChild(el("button", { type: "button", class: "chip", "data-ph": k, text: "{" + k + "}", title: (targetSel === "#edSubject" ? "제목" : "본문") + "에 넣기", onclick: function () { insertAtCursor(targetSel, "{" + k + "}"); } }));
+    });
+    box.appendChild(el("button", { type: "button", class: "chip add", text: "+ 사용자 항목", onclick: function () {
+      dialog({ title: "사용자 항목 추가", message: "항목 이름을 입력하세요 (띄어쓰기 없이, 30자 이내). 예: 인수장소, 금액", input: true, inputPlaceholder: "항목 이름",
+        buttons: [{ label: "취소", value: false, cls: "btn-ghost" }, { label: "넣기", value: true, cls: "btn-primary" }] }).then(function (r) {
+        if (!r || !r.value) return;
+        var name = r.input.replace(/[{}\s]/g, "").slice(0, 30);
+        if (!name) { toast("항목 이름을 입력하세요."); return; }
+        insertAtCursor(targetSel, "{" + name + "}");
+      });
+    } }));
+    if (withFmt) box.appendChild(el("button", { type: "button", class: "chip fmt", text: "B 굵게", title: "선택한 글자를 **굵게** 표시", onclick: function () { wrapSelection(targetSel, "**"); } }));
+  }
+  function insertAtCursor(sel, s) {
+    var ta = $(sel);
+    var st = ta.selectionStart != null ? ta.selectionStart : ta.value.length, en = ta.selectionEnd != null ? ta.selectionEnd : st;
+    ta.value = ta.value.slice(0, st) + s + ta.value.slice(en);
+    ta.focus(); ta.setSelectionRange(st + s.length, st + s.length);
+    updateEditorInfo();
+  }
+  function wrapSelection(sel, w) {
+    var ta = $(sel), st = ta.selectionStart, en = ta.selectionEnd;
+    var inner = ta.value.slice(st, en) || "굵은 글씨";
+    ta.value = ta.value.slice(0, st) + w + inner + w + ta.value.slice(en);
+    ta.focus(); ta.setSelectionRange(st + w.length, st + w.length + inner.length);
+    updateEditorInfo();
+  }
+  function updateEditorInfo() {
+    var subj = $("#edSubject").value, body = $("#edBody").value;
+    var f = extractFields(subj); extractFields(body).forEach(function (k) { if (f.indexOf(k) < 0) f.push(k); });
+    var box = $("#edDetected"); box.textContent = "";
+    if (!f.length) box.appendChild(el("span", { class: "muted small", text: "없음" }));
+    f.forEach(function (k) { box.appendChild(el("span", { class: "tag" + (STD_FIELDS.indexOf(k) < 0 ? " custom" : ""), text: k + (STD_FIELDS.indexOf(k) < 0 ? " (사용자)" : "") })); });
+    linesToDom($("#edPvSubject"), parseLines(subj, {}, false), true);
+    linesToDom($("#edPvBody"), parseLines(body, {}, true), true);
+  }
+  function saveEditor() {
+    var name = $("#edName").value.trim(), subject = $("#edSubject").value.replace(/[\r\n]+/g, " ").trim(),
+      body = $("#edBody").value.replace(/\r\n?/g, "\n"), lang = $("#edLang").value, msg = $("#edMsg");
+    function fail(t, f) { msg.className = "field-msg err"; msg.textContent = t; $(f).focus(); return false; }
+    if (!name) return fail("템플릿 이름을 입력하세요.", "#edName");
+    if (!subject) return fail("제목을 입력하세요.", "#edSubject");
+    if (!body.trim()) return fail("본문을 입력하세요.", "#edBody");
+    if (subject.length > SUBJECT_MAX) return fail("제목이 너무 깁니다 (최대 " + SUBJECT_MAX + "자).", "#edSubject");
+    if (body.length > BODY_MAX) return fail("본문이 너무 깁니다 (최대 " + BODY_MAX + "자).", "#edBody");
+    if (!LANGS[lang]) return fail("메일 언어를 선택하세요.", "#edLang");
+    var all = subject + body;
+    if ((all.match(/\{/g) || []).length !== (all.match(/\}/g) || []).length) toast("중괄호 { } 짝이 맞지 않습니다. 확인해 주세요.");
+    var t = editingId ? findTpl(editingId) : null;
+    if (t) { t.name = name; t.subject = subject; t.body = body; t.lang = lang; t.example = false; t.updatedAt = Date.now(); }
+    else { t = { id: uid(), name: name, lang: lang, subject: subject, body: body, example: false, updatedAt: Date.now() }; templates.push(t); }
+    selectTpl(t.id);
+    saveTemplates(); toast("저장했습니다."); showView("templates");
+    return true;
+  }
+
+  /* ---------- 내보내기·가져오기·공유 ---------- */
+  function templatesJson() {
+    return JSON.stringify({
+      app: FILE_APP, version: FILE_VERSION, exportedAt: new Date().toISOString(),
+      languages: LANG_ORDER.slice(),
+      templates: templates.map(function (t) { return { name: t.name, lang: langOf(t), subject: t.subject, body: t.body, example: !!t.example }; })
+    }, null, 2);
+  }
+  function download(fname, text) {
+    var url = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+    var a = el("a", { href: url, download: fname }); document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+  }
+  function exportTemplates() {
+    if (!templates.length) { toast("내보낼 템플릿이 없습니다."); return null; }
+    var json = templatesJson(); download("email-templates-" + ymd() + ".json", json);
+    toast("템플릿 " + templates.length + "개를 내보냈습니다."); return json;
+  }
+  function shareTemplates() {
+    if (!templates.length) { toast("공유할 양식이 없습니다."); return Promise.resolve(null); }
+    var fname = "안내메일-양식-" + ymd() + ".json", json = templatesJson();
+    download(fname, json);
+    return alertDialog("양식 공유 파일을 만들었습니다", "‘" + fname + "’ 파일이 ‘다운로드’ 폴더에 저장되었습니다 (템플릿 " + templates.length + "개).\n\n1. 웹메일이나 사내 메신저에 이 파일을 첨부해 동료에게 보내세요.\n2. 받은 사람은 파일을 저장한 뒤 이 도구의 [템플릿] 탭 → ‘가져오기 (추가)’를 누르거나, 파일을 화면에 끌어다 놓으면 됩니다.\n\n※ 작성 기록·지점 설정·고객 정보는 파일에 들어가지 않습니다.").then(function () { return json; });
+  }
+  function importError(msg) { var e = new Error(msg); e.userMessage = msg; return e; }
+  function parseImport(text) {
+    if (typeof text !== "string" || !text.trim()) throw importError("파일 내용이 비어 있습니다.");
+    if (text.length > IMPORT_MAX_CHARS) throw importError("파일이 너무 큽니다 (최대 2MB).");
+    if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+    var data;
+    try { data = JSON.parse(text); } catch (e) { throw importError("JSON 형식이 아닙니다. 이 도구에서 내보내거나 공유한 양식 파일인지 확인하세요."); }
+    if (!data || typeof data !== "object" || Array.isArray(data)) throw importError("양식 파일 형식이 아닙니다.");
+    if (data.app === "gimhae-sms-templates") throw importError("‘안내 문자 발송’ 앱의 문자 양식 파일입니다. 메일 양식 파일을 선택하세요.");
+    if (data.app !== FILE_APP) throw importError("이 도구의 양식 파일이 아닙니다.");
+    if (data.version !== FILE_VERSION) throw importError("지원하지 않는 파일 버전입니다 (" + String(data.version).slice(0, 10) + ").");
+    var list = data.templates;
+    if (!Array.isArray(list)) throw importError("양식 목록(templates)이 없습니다.");
+    if (!list.length) throw importError("파일에 양식이 없습니다.");
+    if (list.length > IMPORT_MAX_ITEMS) throw importError("양식이 너무 많습니다 (최대 " + IMPORT_MAX_ITEMS + "개).");
+    return list.map(function (t, i) {
+      var no = (i + 1) + "번째 양식: ";
+      if (!t || typeof t !== "object" || Array.isArray(t)) throw importError(no + "형식이 올바르지 않습니다.");
+      ["name", "subject", "body"].forEach(function (k) {
+        var label = { name: "이름", subject: "제목", body: "본문" }[k];
+        if (typeof t[k] !== "string" || !t[k].trim()) throw importError(no + label + "이(가) 없습니다.");
+        if (CTRL_RE.test(t[k])) throw importError(no + label + "에 허용되지 않는 제어 문자가 있습니다.");
+      });
+      if (t.name.trim().length > NAME_MAX) throw importError(no + "이름이 너무 깁니다 (최대 " + NAME_MAX + "자).");
+      if (/[\r\n]/.test(t.subject)) throw importError(no + "제목에 줄바꿈이 있습니다.");
+      if (t.subject.length > SUBJECT_MAX) throw importError(no + "제목이 너무 깁니다 (최대 " + SUBJECT_MAX + "자).");
+      if (t.body.length > BODY_MAX) throw importError(no + "본문이 너무 깁니다 (최대 " + BODY_MAX + "자).");
+      if (typeof t.lang !== "string" || !Object.prototype.hasOwnProperty.call(LANGS, t.lang)) throw importError(no + "지원하지 않는 언어입니다 (" + String(t.lang).slice(0, 20) + "). 지원: " + LANG_ORDER.join(", "));
+      if (t.example !== undefined && typeof t.example !== "boolean") throw importError(no + "example 값이 올바르지 않습니다.");
+      return { id: uid(), name: t.name.trim(), lang: t.lang, subject: t.subject.trim(), body: t.body.replace(/\r\n?/g, "\n"), example: t.example === true, updatedAt: Date.now() };
+    });
+  }
+  function applyImport(list, mode) {
+    if (mode === "replace") {
+      templates = list; selectTpl(list[0].id); saveTemplates(); renderTemplates();
+      toast(list.length + "개로 교체했습니다."); return list.length;
+    }
+    var n = 0;
+    list.forEach(function (t) {
+      if (!templates.some(function (x) { return x.name === t.name && x.subject === t.subject && x.body === t.body && langOf(x) === t.lang; })) { templates.push(t); n++; }
+    });
+    saveTemplates(); renderTemplates();
+    toast(n + "개 추가, " + (list.length - n) + "개 중복 제외"); return n;
+  }
+  function importText(text, mode, fname) {
+    var list;
+    try { list = parseImport(text); }
+    catch (e) {
+      return alertDialog("가져오기 실패", (fname ? "‘" + String(fname).slice(0, 80) + "’\n" : "") + (e.userMessage || "올바른 양식 파일이 아닙니다.") + "\n\n아무것도 변경되지 않았습니다.").then(function () { return 0; });
+    }
+    var names = list.slice(0, 5).map(function (t) { return "· [" + LANGS[t.lang].short + "] " + t.name; }).join("\n") + (list.length > 5 ? "\n· 외 " + (list.length - 5) + "개" : "");
+    var p;
+    if (mode === "replace") p = confirmDialog("전체 교체", "지금 있는 템플릿 " + templates.length + "개를 모두 지우고 파일의 템플릿 " + list.length + "개로 바꿀까요?\n" + names, "전체 교체").then(function (ok) { return ok ? "replace" : null; });
+    else if (mode === "merge") p = Promise.resolve("merge");
+    else p = dialog({ title: "양식 가져오기", message: (fname ? "‘" + String(fname).slice(0, 80) + "’\n" : "") + "양식 " + list.length + "개\n" + names + "\n\n· 추가: 기존 양식은 두고 새 양식만 더합니다 (같은 양식 제외).\n· 교체: 기존 양식을 모두 지우고 바꿉니다.",
+      buttons: [{ label: "취소", value: null, cls: "btn-ghost" }, { label: "교체", value: "replace", cls: "btn-danger-ghost" }, { label: "추가", value: "merge", cls: "btn-primary" }] });
+    return p.then(function (m) {
+      if (m !== "merge" && m !== "replace") { toast("가져오기를 취소했습니다."); return 0; }
+      return applyImport(list, m);
+    });
+  }
+  function readFile(f, mode) {
+    if (!f) return;
+    if (f.size > IMPORT_MAX_CHARS * 2) { alertDialog("가져오기 실패", "파일이 너무 큽니다 (최대 2MB)."); return; }
+    var rd = new FileReader();
+    rd.onload = function () { importText(String(rd.result), mode, f.name); };
+    rd.onerror = function () { toast("파일을 읽을 수 없습니다."); };
+    rd.readAsText(f, "utf-8");
+  }
+
+  /* ---------- 붙여넣기 자동 채우기 (예약 시스템 화면 텍스트 → 입력칸) ---------- */
+  // 붙여넣은 원문은 저장하지 않음(localStorage·기록 모두 제외). 채운 뒤 입력창을 비움.
+  function labelRe(words) {
+    return words.map(function (w) {
+      var core = w.split("").map(function (ch) { return ch === " " ? "" : ch.replace(/[.*+?^${}()|[\]\\\-#&\/]/g, "\\$&"); }).filter(Boolean).join("\\s*");
+      // 영문 라벨은 단어 중간에서 찾지 않음 (예: 'name'이 'username' 안에서 잡히지 않게)
+      if (/^[A-Za-z]/.test(w)) core = "(?<![A-Za-z])" + core;
+      if (/[A-Za-z]$/.test(w)) core = core + "(?![A-Za-z])";
+      return core;
+    }).join("|");
+  }
+  // 라벨: 한국어 · 영어 · 중국어(번체/간체)
+  var PL = {
+    contract: ["계약번호", "contract no", "contract number", "contract #", "agreement no", "agreement number", "rental agreement", "合約編號", "合约编号", "合同編號", "合同编号", "合約號碼"],
+    reservation: ["예약번호", "reservation no", "reservation number", "reservation #", "booking no", "booking number", "booking ref", "booking reference", "confirmation no", "confirmation number",
+      "預約編號", "预约编号", "預訂編號", "预订编号", "訂單編號", "订单编号"],
+    name: ["고객명", "성명", "이름", "예약자", "운전자명", "customer name", "guest name", "full name", "driver name", "name", "姓名", "客戶姓名", "客户姓名", "顧客姓名", "旅客姓名"],
+    email: ["이메일", "e-mail", "email", "e메일", "메일", "mail address", "電子郵件", "电子邮件", "電郵", "郵箱", "邮箱"]
+  };
+  // 값 자르기용: 화면에 흔히 있는 다른 항목 이름들(길이 긴 것 먼저)
+  var OTHER_LABELS = ["휴대전화번호", "최초예약등록자", "최초예약지점", "최초예약일", "개인정보보호", "개인정보", "고객주소", "고객번호", "회원등급", "예약채널", "계약상태", "예약상태",
+    "전화번호", "휴대폰", "연락처", "결제금액", "특이사항", "동의일자", "주소", "대여일시", "반납일시", "운전면허", "생년월일", "차량번호", "예약모델",
+    "customer no", "customer number", "member no", "phone", "mobile", "tel", "address", "amount", "return date", "drop-off",
+    "電話", "电话", "手機", "手机", "地址", "客戶編號", "客户编号", "金額", "金额", "還車時間", "还车时间"];
+  var ALL_LABELS = PL.contract.concat(PL.reservation, PL.name, PL.email, OTHER_LABELS).sort(function (a, b) { return b.length - a.length; });
+  var ANY_LABEL_RE = new RegExp(labelRe(ALL_LABELS), "gi");
+  var EMAIL_CHARS = "[A-Za-z0-9.!#$%&'*+=?^_`{}~-]+@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)+"; // '/'·'|'는 값 구분자로 쓰여 제외
+  var EMAIL_FIND_RE = new RegExp(EMAIL_CHARS, "g");
+  var MAIL_LABEL_END_RE = new RegExp("(" + labelRe(PL.email) + ")\\s*[:=]?\\s*(?:mailto:)?\\s*<?\\s*$", "i");
+  var PICKUP_END_RE = new RegExp("(?:대여|출고|인수|픽업|pick\\s*-?\\s*up|rental|取車|取车|租車|租车|提車|提车)\\s*(?:예정)?\\s*" +
+    "(?:일시|일자|시간|시각|일|date\\s*(?:&|and|\\/)?\\s*time|date|time|日期時間|日期时间|日期|時間|时间)?\\s*(?:예정)?\\s*[:=]?\\s*$", "i");
+  var RETURN_RE = /반납|return|drop\s*-?\s*off|還車|还车/i;
+
+  /* ---- 날짜·시간 인식 (여러 형식) ---- */
+  var EN_MON = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], EN_WD3 = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  var KWD = "[월화수목금토일]", EWD = "(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\\.?";
+  var WD_P = "(?<wd>\\(\\s*(?:" + KWD + "(?:요일)?|" + EWD + ")\\s*\\)|" + KWD + "(?:요일)?(?![가-힣])|" + EWD + "(?![a-z]))";
+  var AMPM = "(?:오전|오후|am|pm|a\\.m\\.|p\\.m\\.)";
+  var TIME_P = "(?:(?<ap1>" + AMPM + ")\\s*)?(?<!\\d)(?<h>\\d{1,2})\\s*(?::\\s*(?<mi>\\d{2})(?!\\d)|시(?![간각])(?:\\s*(?<mi2>\\d{1,2})\\s*분)?)(?:\\s*(?<ap2>am|pm|a\\.m\\.|p\\.m\\.)(?![a-z]))?";
+  var MON_P = "(?<mon>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\.?";
+  var D_YMD = "(?<!\\d)(?<y>\\d{4})\\s*[-./]\\s*(?<mo>\\d{1,2})\\s*[-./]\\s*(?<d>\\d{1,2})(?!\\d)\\.?";
+  var D_KO = "(?<!\\d)(?<y>\\d{4})\\s*년\\s*(?<mo>\\d{1,2})\\s*월\\s*(?<d>\\d{1,2})\\s*일";
+  var D_EN1 = "(?<![a-z])(?:(?<wd>" + EWD + ")\\s*,?\\s*)?" + MON_P + "\\s*(?<d>\\d{1,2})(?:st|nd|rd|th)?\\s*,?\\s*(?<y>\\d{4})";
+  var D_EN2 = "(?<!\\d)(?:(?<wd>" + EWD + ")\\s*,?\\s*)?(?<d>\\d{1,2})(?:st|nd|rd|th)?\\s+" + MON_P + "\\s*,?\\s*(?<y>\\d{4})";
+  var D_MD = "(?<![\\d./-])(?<mo>\\d{1,2})\\s*\\/\\s*(?<d>\\d{1,2})(?![\\d./])";
+  var D_MDKO = "(?<![\\d년]\\s*)(?<mo>\\d{1,2})\\s*월\\s*(?<d>\\d{1,2})\\s*일";
+  var SEP_WD = "\\s*(?:" + WD_P + ")?\\s*,?\\s*(?:at\\s+)?", SEP = "\\s*,?\\s*(?:at\\s+)?";
+  function rx(s) { return new RegExp(s, "gi"); }
+  var DT_FORMATS = [
+    { re: rx(D_YMD + SEP_WD + TIME_P) },
+    { re: rx(D_KO + SEP_WD + TIME_P) },
+    { re: rx("(?<!\\d)(?<y>20\\d{2})(?<mo>\\d{2})(?<d>\\d{2})(?!\\d)" + SEP_WD + "(?:(?<hc>\\d{2})(?<mc>\\d{2})(?!\\d)|" + TIME_P + ")") },
+    { re: rx(D_EN1 + SEP + TIME_P) },
+    { re: rx(D_EN2 + SEP + TIME_P) },
+    { re: rx(D_MD + SEP_WD + TIME_P), yearless: true },
+    { re: rx(D_MDKO + SEP_WD + TIME_P), yearless: true }
+  ];
+  var DATE_ONLY = [new RegExp("^(?:" + D_YMD + "|" + D_KO.replace(/\?<(y|mo|d)>/g, "") + ")" + "\\s*(?:" + WD_P + ")?$", "i"), new RegExp("^" + D_EN1 + "$", "i")];
+  var TIME_ONLY = new RegExp("^" + TIME_P + "$", "i");
+  function wdIndex(raw) {
+    if (!raw) return -1;
+    var t = raw.replace(/[()\s.,]/g, "").toLowerCase();
+    var k = KO_WD.indexOf(t.charAt(0));
+    if (/^[가-힣]/.test(t)) return k;
+    return EN_WD3.indexOf(t.slice(0, 3));
+  }
+  // 연도 없는 날짜: 올해 기준, 이미 한 달 넘게 지난 날짜면 내년
+  function guessYear(mo, d) {
+    var now = new Date(), y = now.getFullYear(), c = new Date(y, mo - 1, d);
+    return (now - c > 31 * 864e5) ? y + 1 : y;
+  }
+  function toDt(m, f) {
+    var g = m.groups || {};
+    var mo = g.mon ? EN_MON.indexOf(g.mon.slice(0, 3).toLowerCase()) + 1 : +g.mo, d = +g.d;
+    var y = g.y ? +g.y : guessYear(mo, d);
+    var h = g.hc != null ? +g.hc : +g.h, mi = g.mc != null ? +g.mc : g.mi != null ? +g.mi : g.mi2 != null ? +g.mi2 : 0;
+    var ap = (g.ap1 || g.ap2 || "").toLowerCase().replace(/\./g, ""), out = { shown: m[0].replace(/\s+/g, " ").trim(), yearless: !!f.yearless, year: y };
+    if (ap) {
+      if (h > 12 && (ap === "am" || ap === "오전")) return (out.invalid = true, out);
+      if (h < 12 && (ap === "pm" || ap === "오후")) h += 12;
+      else if (h === 12 && (ap === "am" || ap === "오전")) h = 0;
+    }
+    var dt = new Date(y, mo - 1, d, h, mi);
+    if (!(mo >= 1 && mo <= 12) || dt.getMonth() !== mo - 1 || dt.getDate() !== d || h > 23 || mi > 59) return (out.invalid = true, out);
+    var wi = wdIndex(g.wd);
+    if (g.wd && wi >= 0 && wi !== dt.getDay()) out.badWd = true;
+    out.date = isoDate(dt); out.time = pad(h) + ":" + pad(mi);
+    return out;
+  }
+  function findDates(cell) {
+    var all = [];
+    DT_FORMATS.forEach(function (f, fi) {
+      f.re.lastIndex = 0; var m;
+      while ((m = f.re.exec(cell))) {
+        if (!m[0].length) { f.re.lastIndex++; continue; }
+        all.push({ index: m.index, end: m.index + m[0].length, m: m, f: f, fi: fi });
+      }
+    });
+    all.sort(function (a, b) { return a.index - b.index || (b.end - b.index) - (a.end - a.index) || a.fi - b.fi; });
+    var out = [], lastEnd = -1;
+    all.forEach(function (x) {
+      if (x.index < lastEnd) return;
+      lastEnd = x.end;
+      var r = toDt(x.m, x.f); r.index = x.index; r.end = x.end; out.push(r);
+    });
+    return out;
+  }
+
+  function normPaste(text) {
+    var s = String(text || "");
+    try { s = s.normalize("NFKC"); } catch (e) {}
+    return s.replace(/\r\n?/g, "\n").replace(/[\u00A0\u200B\u2007\u202F\u3000\uFEFF]/g, " ");
+  }
+  function splitCells(text) {
+    var cells = [], lineOf = [], lineLen = {}, ln = 0;
+    normPaste(text).split("\n").forEach(function (line) {
+      var n = 0;
+      line.split(/\t| {2,}|\|/).forEach(function (c) { c = c.trim(); if (c) { cells.push(c); lineOf.push(ln); n++; } });
+      lineLen[ln] = n; ln++;
+    });
+    cells.lineOf = lineOf; cells.lineLen = lineLen;
+    return cells;
+  }
+  // 날짜가 CDW 줄(예약 화면의 CDW 행 = 대여일시)에 있는지: 같은 칸의 앞, 같은 줄의 앞 칸, 또는 한 줄에 하나씩 복사된 CDW 행
+  var CDW_RE = /CDW/i, CDW_ALONE_RE = /^\W*CDW\W*$/i;
+  function hasDate(c) { return findDates(c).some(function (x) { return !x.invalid; }); }
+  function isCdwDate(cells, i, before) {
+    if (CDW_RE.test(before)) return true;
+    if (before.trim()) return false;
+    var L = cells.lineOf, LL = cells.lineLen, k;
+    for (k = i - 1; k >= 0 && k >= i - 8 && L[k] === L[i]; k--) {
+      if (hasDate(cells[k])) return false;
+      if (CDW_RE.test(cells[k])) return true;
+    }
+    if (LL[L[i]] !== 1) return false;
+    for (k = i - 1; k >= 0 && k >= i - 7; k--) {
+      if (LL[L[k]] !== 1 || hasDate(cells[k]) || isLabelOnly(cells[k])) return false;
+      if (CDW_ALONE_RE.test(cells[k])) return true;
+    }
+    return false;
+  }
+  function stripEdge(s) { return String(s || "").replace(/^[\s:=•·*\-–|>.#]+/, "").replace(/[\s:=•·*|,;/]+$/, ""); }
+  function isLabelOnly(s) { var t = stripEdge(s).replace(/\s+/g, ""); return ALL_LABELS.some(function (l) { return l.replace(/\s+/g, "").toLowerCase() === t.toLowerCase(); }); }
+  // label에 해당하는 값 목록: 같은 칸의 라벨 뒤(다음 라벨 전까지) → 비어 있으면 다음 칸
+  function labeledValues(cells, words) {
+    var re = new RegExp("(" + labelRe(words) + ")", "gi"), out = [];
+    cells.forEach(function (cell, i) {
+      var m; re.lastIndex = 0;
+      while ((m = re.exec(cell))) {
+        // 더 긴 다른 라벨의 일부면 무시 (예: '이메일' 속 '메일', '고객번호' 등)
+        var start = m.index, end = start + m[0].length, inside = false;
+        ANY_LABEL_RE.lastIndex = 0; var a;
+        while ((a = ANY_LABEL_RE.exec(cell))) {
+          if (a.index <= start && a.index + a[0].length >= end && a[0].length > m[0].length) { inside = true; break; }
+          if (a[0].length === 0) ANY_LABEL_RE.lastIndex++;
+        }
+        if (inside) continue;
+        var rest = cell.slice(end);
+        ANY_LABEL_RE.lastIndex = 0; var nx = ANY_LABEL_RE.exec(rest);
+        if (nx && nx.index > 0) rest = rest.slice(0, nx.index); else if (nx && nx.index === 0) rest = "";
+        var v = stripEdge(rest);
+        if (!v && i + 1 < cells.length && !isLabelOnly(cells[i + 1])) {
+          var nxt = cells[i + 1]; ANY_LABEL_RE.lastIndex = 0; var n2 = ANY_LABEL_RE.exec(nxt);
+          if (!(n2 && n2.index === 0)) v = stripEdge(n2 ? nxt.slice(0, n2.index) : nxt);
+        }
+        if (v) out.push({ label: m[1].replace(/\s+/g, ""), value: v });
+      }
+    });
+    return out;
+  }
+  function isPhoneLike(t) {
+    var d = t.replace(/\D/g, "");
+    return /^\+?\d{2,4}-\d{3,4}-\d{4}$/.test(t) || /^01[016789]\d{7,8}$/.test(d) && d === t || /^1[3-9]\d{9}$/.test(t);
+  }
+  // 10자리 계약번호 찾기: '2622427298', '2622-427298', '26 2242 7298' (숫자만 정확히 10자리가 될 때만)
+  var TOKEN_SPLIT = /[\s|\/;]+|,(?!\d)|(?<!\d),/;
+  function isDateTok(t) { return /^\d{4}[-.\/]\d{1,2}[-.\/]\d{1,2}\.?$/.test(t) || /^\d{1,2}:\d{2}$/.test(t) || /^\d{1,2}[\/.]\d{1,2}$/.test(t) || /^\d{4}-\d{2}$/.test(t); }
+  function tenDigitGroups(text) {
+    var toks = String(text).split(TOKEN_SPLIT).map(function (t) { return t.replace(/^[(\[<#:=•·*.]+|[)\]>.:=]+$/g, ""); }).filter(Boolean);
+    function num(t) { return /^\d+(?:-\d+)*$/.test(t) && !isDateTok(t); }
+    var out = [];
+    for (var i = 0; i < toks.length; i++) {
+      if (!num(toks[i])) continue;
+      var acc = "", raw = [], j;
+      for (j = i; j < toks.length && j < i + 4 && num(toks[j]); j++) {
+        acc += toks[j].replace(/-/g, ""); raw.push(toks[j]);
+        if (acc.length >= 10) break;
+      }
+      if (acc.length !== 10) continue;
+      var multi = raw.length > 1, last = i + raw.length - 1;
+      if (multi && ((i > 0 && (num(toks[i - 1]) || /^\+\d/.test(toks[i - 1]))) || (last + 1 < toks.length && num(toks[last + 1])))) continue;
+      if (multi && /^1/.test(acc)) continue; // '10 1234 5678'(+82 휴대폰) 같은 띄어 쓴 전화번호
+      var rawS = raw.join(" ");
+      if (/^0/.test(acc) || isPhoneLike(rawS) || /^\d{3}-\d{3}-\d{4}$/.test(rawS) || /^\d{3} \d{3} \d{4}$/.test(rawS)) continue;
+      out.push({ value: acc, tok: i, raw: rawS });
+      if (multi) i = last;
+    }
+    return out;
+  }
+  function contractToken(v) {
+    var g = tenDigitGroups(v);
+    if (g.length && g[0].tok === 0) return g[0].value;
+    var t = stripEdge(String(v).split(/\s+/)[0] || "").replace(/[()\[\]]/g, "");
+    if (!/^[A-Za-z0-9][A-Za-z0-9-]{3,24}$/.test(t) || !/\d/.test(t)) return "";
+    if (/[,]/.test(v.split(/\s+/)[0]) || /원$/.test(t) || isPhoneLike(t)) return "";
+    if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(t) || /^\d{1,2}:\d{2}$/.test(t)) return "";
+    return t.toUpperCase();
+  }
+  // 여권식 'TSUI/STEPHEN', 'TSUI, STEPHEN' → 'TSUI STEPHEN' (순서는 입력 그대로)
+  function cleanName(v) { return stripEdge(String(v)).replace(/\s*[\/,]\s*(?=[A-Za-z])/g, " ").replace(/\s+/g, " ").trim(); }
+  function nameToken(v) {
+    var t = cleanName(v);
+    if (isLabelOnly(t)) return "";
+    if (/^[A-Za-z][A-Za-z .'\-]{0,58}[A-Za-z.]$/.test(t) || /^[가-힣]{2,10}( [가-힣]{1,10})?$/.test(t) || /^[\u3400-\u9FFF]{2,12}$/.test(t)) return t;
+    return "";
+  }
+  function titleCaseName(s) {
+    if (!/^[A-Z .'\-]+$/.test(s) || !/[A-Z]/.test(s)) return s;
+    return s.toLowerCase().replace(/(^|[\s\-'.])([a-z])/g, function (m, p, c) { return p + c.toUpperCase(); });
+  }
+  function rankCandidates(list) { // [{value, label, pri}] → 중복 합치고 우선순위·빈도로 정렬
+    var map = {}, order = [];
+    list.forEach(function (c, i) {
+      var k = c.value;
+      if (!map[k]) { map[k] = { value: c.value, label: c.label, pri: c.pri, count: 0, first: i }; order.push(map[k]); }
+      map[k].count++; if (c.pri < map[k].pri) { map[k].pri = c.pri; map[k].label = c.label; }
+    });
+    return order.sort(function (a, b) { return a.pri - b.pri || b.count - a.count || a.first - b.first; });
+  }
+  function cleanEmail(a) {
+    a = a.replace(/^[.]+|[.]+$/g, "");
+    var at = a.lastIndexOf("@");
+    if (a === a.toUpperCase()) return a.toLowerCase(); // 전부 대문자로 복사된 주소
+    return a.slice(0, at) + "@" + a.slice(at + 1).toLowerCase();
+  }
+  function parsePasted(text) {
+    var cells = splitCells(text), res = { email: null, name: null, contract: null, rent: null, notes: [] };
+    if (!cells.length) return res;
+    // 이메일: 라벨 붙은 것 우선, 없으면 처음 나온 올바른 주소 (mailto:, <...>, 끝 문장부호, 대문자 처리)
+    var ec = [];
+    cells.forEach(function (cell, i) {
+      var m; EMAIL_FIND_RE.lastIndex = 0;
+      while ((m = EMAIL_FIND_RE.exec(cell))) {
+        var addr = cleanEmail(m[0]);
+        if (!isValidEmail(addr)) continue;
+        var before = cell.slice(0, m.index);
+        var labeled = MAIL_LABEL_END_RE.test(before) || (!stripEdge(before.replace(/mailto:|</gi, "")) && i > 0 && MAIL_LABEL_END_RE.test(cells[i - 1]));
+        ec.push({ value: addr, label: labeled ? "이메일 항목" : "본문에서 발견", pri: labeled ? 0 : 1 });
+      }
+    });
+    if (ec.length) { var r = rankCandidates(ec); res.email = { value: r[0].value, source: r[0].label, candidates: r.map(function (x) { return x.value; }) }; }
+    // 이름: 고객명 > 성명 > 이름 > 예약자 > 운전자명 > (영어·중국어 라벨)
+    var nc = [];
+    PL.name.forEach(function (w, pri) {
+      labeledValues(cells, [w]).forEach(function (x) { var t = nameToken(x.value); if (t) nc.push({ value: t, label: w, pri: pri }); });
+    });
+    if (nc.length) { var rn = rankCandidates(nc); res.name = { value: rn[0].value, source: "‘" + rn[0].label + "’ 항목", candidates: rn.map(function (x) { return x.value; }) }; }
+    // 계약번호: 라벨 (계약번호 > 예약번호, 영어·중국어 포함)
+    var cc = [];
+    [[PL.contract, 0, "계약번호"], [PL.reservation, 1, "예약번호"]].forEach(function (g) {
+      g[0].forEach(function (w) {
+        labeledValues(cells, [w]).forEach(function (x) { var t = contractToken(x.value); if (t) cc.push({ value: t, label: /^[가-힣]/.test(w) ? g[2] : w, pri: g[1] }); });
+      });
+    });
+    if (cc.length) { var rc = rankCandidates(cc); res.contract = { value: rc[0].value, source: "‘" + rc[0].label + "’ 항목", candidates: rc.map(function (x) { return x.value; }) }; }
+    // 대여일시: ① 대여/출고/인수/픽업(Pick-up·取車) 라벨 바로 옆 ② CDW 행의 날짜 ③ (라벨 없음) 날짜만 있는 줄
+    var dts = [], cdws = [], unlabeled = [], yearless = false;
+    cells.forEach(function (cell, i) {
+      findDates(cell).forEach(function (x) {
+        if (x.invalid) return;
+        if (x.badWd) { res.notes.push("날짜(" + x.shown + ")의 요일이 맞지 않아 건너뛰었습니다."); return; }
+        var before = cell.slice(0, x.index);
+        var isRet = RETURN_RE.test(before.slice(-14));
+        var labeled = !isRet && (PICKUP_END_RE.test(before) || (!before.trim() && i > 0 && PICKUP_END_RE.test(cells[i - 1]) && !RETURN_RE.test(cells[i - 1])));
+        var item = { date: x.date, time: x.time, shown: x.shown, yearless: x.yearless, year: x.year };
+        if (labeled) { item.source = "대여/출고 항목 옆"; dts.push(item); }
+        else if (!isRet && isCdwDate(cells, i, before)) { item.source = "CDW 항목"; cdws.push(item); }
+        else { item.alone = aloneish(cell.slice(0, x.index) + "\u0001" + cell.slice(x.end)); unlabeled.push(item); }
+      });
+    });
+    function distinct(list) { var seen = {}, out = []; list.forEach(function (x) { var k = x.date + " " + x.time; if (!seen[k]) { seen[k] = 1; out.push(x); } }); return out; }
+    var ex = distinct(dts), cd = distinct(cdws), cands = null;
+    var all = normPaste(text), pageLike = CDW_RE.test(all) || RETURN_RE.test(all);
+    if (ex.length > 1) res.notes.push("대여/출고 항목의 일시가 여러 개라 채우지 않았습니다.");
+    else cands = distinct(ex.concat(cd));
+    if (cands && cands.length) {
+      res.rent = { date: cands[0].date, time: cands[0].time, source: cands[0].source, candidates: cands.map(function (x) { return { date: x.date, time: x.time, source: x.source }; }) };
+      yearless = cands[0].yearless && cands[0].year;
+      if (cands.length > 1) res.notes.push("대여 일시 후보가 " + cands.length + "개입니다. 결과에서 맞는 값을 골라 주세요.");
+    } else if (!(ex.length > 1) && unlabeled.length) {
+      // 라벨 없는 날짜: 입력칸 값만 복사한 경우. CDW·반납 글자가 함께 있으면(화면 통째 복사) 추측하지 않음
+      var un = distinct(unlabeled), alone = un.filter(function (x) { return x.alone; });
+      if (!pageLike && un.length === 1 && alone.length === 1) {
+        res.rent = { date: un[0].date, time: un[0].time, source: "날짜만 있는 줄", candidates: [{ date: un[0].date, time: un[0].time, source: "날짜만 있는 줄" }] };
+        yearless = un[0].yearless && un[0].year;
+      } else if (!pageLike && un.length > 1 && alone.length) {
+        res.rentPick = un.map(function (x) { return { date: x.date, time: x.time, source: x.alone ? "날짜만 있는 줄" : "라벨 없는 날짜" }; });
+        res.notes.push("라벨 없는 날짜가 " + un.length + "개라 대여 일시를 채우지 않았습니다. 결과에서 맞는 값을 골라 주세요.");
+      } else res.notes.push("날짜(" + un[0].shown + ")는 보였지만 대여 일시인지 확실하지 않아 채우지 않았습니다.");
+    } else if (!(ex.length > 1) && !pageLike) {
+      // 날짜와 시간이 따로 있는 경우 ('2026-10-02' 줄 + '21:00' 줄)
+      var dOnly = [], tOnly = [];
+      cells.forEach(function (c) {
+        var s = stripEdge(c);
+        if (DATE_ONLY.some(function (re) { return re.test(s); })) dOnly.push(s);
+        else if (TIME_ONLY.test(s)) tOnly.push(s);
+      });
+      if (dOnly.length === 1 && tOnly.length === 1) {
+        var x2 = findDates(dOnly[0] + " " + tOnly[0])[0];
+        if (x2 && !x2.invalid && !x2.badWd) res.rent = { date: x2.date, time: x2.time, source: "날짜 줄 + 시간 줄", candidates: [{ date: x2.date, time: x2.time, source: "날짜 줄 + 시간 줄" }] };
+        else if (x2 && x2.badWd) res.notes.push("날짜(" + x2.shown + ")의 요일이 맞지 않아 건너뛰었습니다.");
+      } else if (dOnly.length && !tOnly.length) res.notes.push("날짜(" + dOnly[0] + ")만 있고 시간이 없어 대여 일시를 채우지 않았습니다.");
+      else if (dOnly.length > 1 || tOnly.length > 1) res.notes.push("날짜·시간 줄이 여러 개라 대여 일시를 채우지 않았습니다.");
+    }
+    if (res.rent && yearless) res.notes.push("연도가 없어 " + yearless + "년으로 넣었습니다. 연도를 확인하세요.");
+    unlabeledFallback(cells, res);
+    return res;
+  }
+  // ---- 라벨 없는 값(입력칸 값만 하나씩 복사해 붙여넣은 경우). 라벨로 찾은 값이 없을 때만 사용 ----
+  var NAME_STOP = ("CDW SCDW LDW PAI TP ZDC SUV RV EV VAN SEDAN HYBRID AUTO HELP WAITING SIMULATION HERTZ ESHOP E-SHOP LOTTE RENTACAR RENT-A-CAR " +
+    "OK YES NO NONE NULL NA EMAIL E-MAIL MAIL MAILTO NAME TEL PHONE VIP KOREA GIMHAE AIRPORT PICKUP PICK-UP PICK UP CONTRACT RESERVATION BOOKING DATE TIME " +
+    "MON TUE WED THU FRI SAT SUN MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY JAN FEB MAR APR MAY JUN JUL AUG SEP SEPT OCT NOV DEC AM PM KRW USD " +
+    "DEAR THANK THANKS YOU HELLO HI REGARDS RETURN DROP OFF DROP-OFF RENTAL CAR CUSTOMER GUEST NUMBER").split(" ");
+  var NAME_STOP_PHRASES = ["LOTTE RENT-A-CAR", "PICK UP", "SUPER CDW", "THANK YOU"];
+  var KO_NAME_STOP = ["고객명", "계약번호", "예약번호", "가입", "미가입", "완전면책", "일반면책", "면책", "메일전송", "메일", "전송", "문자", "발송", "대여", "반납", "출고", "인수", "픽업",
+    "확인", "취소", "저장", "조회", "검색", "닫기", "변경", "삭제", "등록", "수정", "추가", "선택", "전체", "예약", "계약", "고객", "지점", "영업소", "김해", "공항", "김해공항", "제주", "서울", "부산",
+    "일반", "일반회원", "법인", "개인", "회원", "비회원", "정상", "완료", "대기", "승인", "결제", "현금", "카드", "후불", "선불", "내국인", "외국인", "없음", "있음", "해당없음", "동의", "미동의",
+    "보험", "자차", "직접", "홈페이지", "예약확정", "상태", "특이사항", "이메일", "연락처", "주소", "성명", "이름", "예약자", "운전자명", "단기영업팀", "메모", "오전", "오후",
+    "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일", "오늘", "내일", "모레", "시간", "날짜", "일시"];
+  function latinNameLine(c) {
+    var t = cleanName(c);
+    if (t.length < 2 || t.length > 60 || !/^[A-Za-z][A-Za-z .'\-]*$/.test(t) || (t.match(/[A-Za-z]/g) || []).length < 2) return "";
+    var U = t.toUpperCase(), words = U.split(/[\s.]+/).filter(Boolean);
+    if (words.length > 5 || NAME_STOP_PHRASES.indexOf(U) >= 0 || words.every(function (w) { return NAME_STOP.indexOf(w) >= 0; })) return "";
+    if (isLabelOnly(t)) return "";
+    return t;
+  }
+  function koNameSeg(k) { return /^[가-힣]{2,4}$/.test(k) && KO_NAME_STOP.indexOf(k) < 0 && !isLabelOnly(k) ? k : ""; }
+  // 칸에서 이메일·날짜·숫자를 빼고 남은 조각들 (한 줄에 여러 값을 적은 경우 이름 찾기용)
+  function residualSegments(cell) {
+    var s = cell.replace(new RegExp("(?:mailto:)?<?" + EMAIL_CHARS + ">?", "gi"), "\u0001");
+    findDates(s).reverse().forEach(function (x) { s = s.slice(0, x.index) + "\u0001" + s.slice(x.end); });
+    s = s.replace(/(?<![A-Za-z가-힣])\d[\d\-:.,]*(?:원|세)?(?![A-Za-z])/g, "\u0001");
+    return s.split(/[\u0001|\t;]+|\s+\/\s+/).filter(function (x) { return !/:\s*$/.test(x); }).map(function (x) { return cleanName(x); }).filter(Boolean); // 'Return:' 같은 라벨 조각 제외
+  }
+  function aloneish(rest) {
+    return residualSegments(rest).every(function (seg) { return latinNameLine(seg) || koNameSeg(seg) || /^[(),.\-–\/\s]*$/.test(seg); });
+  }
+  function unlabeledFallback(cells, res) {
+    if (!res.contract) {
+      // 다른 라벨(고객번호·전화 등) 바로 뒤 값은 제외
+      var other = {};
+      labeledValues(cells, OTHER_LABELS).forEach(function (x) { other[String(x.value).replace(/\D/g, "").slice(0, 12)] = 1; tenDigitGroups(x.value).forEach(function (g) { other[g.value] = 1; }); });
+      var nums = [];
+      cells.forEach(function (cell) {
+        tenDigitGroups(cell).forEach(function (g) {
+          if (!other[g.value]) nums.push({ value: g.value, label: "라벨 없는 10자리 숫자", pri: /^26/.test(g.value) ? 0 : 1 });
+        });
+      });
+      if (nums.length) { var rc = rankCandidates(nums); res.contract = { value: rc[0].value, source: rc[0].label, candidates: rc.map(function (x) { return x.value; }) }; }
+    }
+    if (!res.name) {
+      var lat = [], ko = [];
+      cells.forEach(function (cell) {
+        residualSegments(cell).forEach(function (seg) {
+          var t = latinNameLine(seg); if (t) { lat.push({ value: t, label: "라벨 없는 영문 이름", pri: 0 }); return; }
+          var k = koNameSeg(seg); if (k) ko.push(k);
+        });
+      });
+      if (lat.length) { var rn = rankCandidates(lat); res.name = { value: rn[0].value, source: rn[0].label, candidates: rn.map(function (x) { return x.value; }) }; }
+      else {
+        var kd = ko.filter(function (x, j) { return ko.indexOf(x) === j; });
+        if (kd.length === 1) res.name = { value: kd[0], source: "라벨 없는 한글 이름", candidates: [kd[0]] };
+        else if (kd.length > 1) res.notes.push("이름일 수 있는 한글이 여러 개(" + kd.join(", ") + ")라 이름을 채우지 않았습니다.");
+      }
+    }
+  }
+
+  var PF = {
+    email: { sel: "#email", label: "받는 사람 이메일" },
+    name: { sel: "#f_이름", label: "이름" },
+    contract: { sel: "#f_계약번호", label: "계약번호" }
+  };
+  var lastParse = null;
+  function nameForFill(v) { return $("#titleCase").checked ? titleCaseName(v) : v; }
+  function markAuto(inp, on) { inp.classList.toggle("autofilled", !!on); }
+  function runAutofill(text) {
+    var src = text != null ? text : $("#pasteBox").value;
+    if (!String(src).trim()) { toast("붙여넣은 내용이 없습니다."); return Promise.resolve(null); }
+    var r = parsePasted(src);
+    var want = {};
+    if (r.email) want.email = r.email.value;
+    if (r.name) want.name = nameForFill(r.name.value);
+    if (r.contract) want.contract = r.contract.value;
+    var conflicts = [];
+    Object.keys(want).forEach(function (k) {
+      var cur = $(PF[k].sel).value.trim();
+      if (cur && cur !== want[k]) conflicts.push({ k: k, cur: cur, nv: want[k] });
+    });
+    var rentConflict = false;
+    if (r.rent) {
+      var cd = $("#rentDate").value, ct = $("#rentTime").value;
+      if ((cd || ct) && (cd !== r.rent.date || ct !== r.rent.time)) { rentConflict = true; conflicts.push({ k: "rent", cur: formatDT(cd, ct, "ko") || (cd + " " + ct).trim(), nv: formatDT(r.rent.date, r.rent.time, "ko") }); }
+    }
+    var p = Promise.resolve("overwrite");
+    if (conflicts.length) {
+      p = dialog({
+        title: "이미 입력된 칸이 있습니다",
+        message: "붙여넣은 내용과 다른 값이 이미 입력되어 있습니다.\n\n" + conflicts.map(function (c) {
+          return "· " + (c.k === "rent" ? "대여 일시" : PF[c.k].label) + ": 지금 ‘" + c.cur + "’ → 새 값 ‘" + c.nv + "’";
+        }).join("\n") + "\n\n덮어쓸까요? ‘빈 칸만 채우기’를 누르면 이미 입력한 칸은 그대로 둡니다.",
+        buttons: [{ label: "취소", value: null, cls: "btn-ghost" }, { label: "빈 칸만 채우기", value: "empty", cls: "btn-outline" }, { label: "덮어쓰기", value: "overwrite", cls: "btn-primary" }]
+      });
+    }
+    return p.then(function (mode) {
+      if (mode !== "overwrite" && mode !== "empty") { toast("자동 채우기를 취소했습니다. 입력칸은 바뀌지 않았습니다."); return null; }
+      var filled = [];
+      Object.keys(PF).forEach(function (k) {
+        var inp = $(PF[k].sel);
+        if (want[k] == null) return; // 이번에 못 찾은 칸은 그대로 둠(이전 붙여넣기 값 유지)
+        markAuto(inp, false);
+        var cur = inp.value.trim();
+        if (cur && cur !== want[k] && mode === "empty") return;
+        inp.value = want[k]; markAuto(inp, true); filled.push(k);
+      });
+      if (r.rent && !(rentConflict && mode === "empty")) {
+        $("#rentDate").value = r.rent.date; $("#rentTime").value = r.rent.time;
+        markAuto($("#rentDate"), true); markAuto($("#rentTime"), true); filled.push("rent");
+      }
+      lastParse = r;
+      renderPasteResult(r, filled, mode);
+      if (filled.length || r.email || r.name || r.contract || r.rent || r.rentPick) $("#pasteBox").value = "";
+      updatePreview();
+      toast(filled.length ? filled.length + "개 칸을 채웠습니다. 결과를 확인하세요." : "채울 수 있는 정보를 찾지 못했습니다.");
+      return { result: r, filled: filled };
+    });
+  }
+  function haveVal(k) {
+    if (k === "rent") { var d = $("#rentDate").value, t = $("#rentTime").value; return d ? (formatDT(d, t, "ko") || d) : ""; }
+    return $(PF[k].sel).value.trim();
+  }
+  function renderPasteResult(r, filled, mode) {
+    var box = $("#pasteResult"); box.textContent = ""; box.hidden = false;
+    var ul = el("ul", { class: "pr-list" });
+    function row(k, label, item, displayVal) {
+      var li;
+      if (item) {
+        var did = filled.indexOf(k) >= 0;
+        li = el("li", { class: did ? "pr-ok" : "pr-skip", "data-k": k }, [
+          el("b", { text: (did ? "✓ " : "– ") + label + ": " }), el("span", { class: "pr-val", text: displayVal }),
+          el("span", { class: "muted small", text: " (" + item.source + ")" + (did ? "" : " — 이미 입력된 값을 유지했습니다") })
+        ]);
+        if (k === "rent" && item.candidates && item.candidates.length > 1) {
+          var rs = el("select", { class: "input pr-pick", "data-k": "rent", "aria-label": "대여 일시 후보 선택" });
+          item.candidates.forEach(function (c) { rs.appendChild(el("option", { value: c.date + "|" + c.time, text: formatDT(c.date, c.time, "ko") + " (" + c.source + ")" })); });
+          rs.value = item.date + "|" + item.time;
+          rs.addEventListener("change", function () {
+            var pr = rs.value.split("|");
+            $("#rentDate").value = pr[0]; $("#rentTime").value = pr[1]; markAuto($("#rentDate"), true); markAuto($("#rentTime"), true);
+            li.querySelector(".pr-val").textContent = formatDT(pr[0], pr[1], "ko"); updatePreview();
+          });
+          li.appendChild(el("div", { class: "pr-multi" }, [el("span", { class: "small", text: "후보 " + item.candidates.length + "개 — 다른 값 선택: " }), rs]));
+        }
+        if (item.candidates && item.candidates.length > 1 && k !== "rent") {
+          var sel = el("select", { class: "input pr-pick", "data-k": k, "aria-label": label + " 후보 선택" });
+          item.candidates.forEach(function (c) { sel.appendChild(el("option", { value: c, text: c })); });
+          sel.value = item.value;
+          sel.addEventListener("change", function () {
+            var v = k === "name" ? nameForFill(sel.value) : sel.value, inp = $(PF[k].sel);
+            inp.value = v; markAuto(inp, true); li.querySelector(".pr-val").textContent = v; updatePreview();
+          });
+          li.appendChild(el("div", { class: "pr-multi" }, [el("span", { class: "small", text: "후보 " + item.candidates.length + "개 — 다른 값 선택: " }), sel]));
+        }
+      } else if (haveVal(k)) {
+        li = el("li", { class: "pr-have", "data-k": k }, [el("b", { text: "✓ " + label + ": " }), el("span", { class: "pr-val", text: haveVal(k) }), el("span", { class: "muted small", text: " (이미 입력됨)" })]);
+      } else {
+        li = el("li", { class: "pr-miss", "data-k": k }, [el("b", { text: "✗ " + label + ": " }), el("span", { text: k === "rent" ? (r.rentPick ? "채우지 않음 — 아래에서 고르거나 직접 선택하세요." : "채우지 않음 — 필요하면 직접 선택하세요.") : "찾지 못함 — 직접 입력하세요." })]);
+        if (k === "rent" && r.rentPick) {
+          var ps = el("select", { class: "input pr-pick", "data-k": "rent", "aria-label": "대여 일시 후보 선택" });
+          ps.appendChild(el("option", { value: "", text: "— 대여 일시 선택 —" }));
+          r.rentPick.forEach(function (c) { ps.appendChild(el("option", { value: c.date + "|" + c.time, text: formatDT(c.date, c.time, "ko") + " (" + c.source + ")" })); });
+          ps.addEventListener("change", function () {
+            if (!ps.value) return;
+            var pr = ps.value.split("|");
+            $("#rentDate").value = pr[0]; $("#rentTime").value = pr[1]; markAuto($("#rentDate"), true); markAuto($("#rentTime"), true); updatePreview();
+          });
+          li.appendChild(el("div", { class: "pr-multi" }, [el("span", { class: "small", text: "후보 " + r.rentPick.length + "개: " }), ps]));
+        }
+      }
+      ul.appendChild(li);
+    }
+    row("email", "이메일", r.email, r.email ? $("#email").value || r.email.value : "");
+    row("name", "이름", r.name, r.name ? $("#f_이름").value || r.name.value : "");
+    row("contract", "계약번호", r.contract, r.contract ? $("#f_계약번호").value || r.contract.value : "");
+    row("rent", "대여 일시", r.rent, r.rent ? formatDT(r.rent.date, r.rent.time, "ko") : "");
+    box.appendChild(el("div", { class: "pr-head" }, [el("b", { text: "자동 채우기 결과" }), el("button", { type: "button", class: "btn btn-ghost btn-sm", id: "pasteResultClose", text: "닫기", onclick: function () { box.hidden = true; box.textContent = ""; } })]));
+    box.appendChild(ul);
+    if (r.name) box.appendChild(el("p", { class: "pr-hint", id: "nameHint", text: "⚠ 예약 화면의 고객명 칸은 길면 잘려 보일 수 있습니다. 이름이 예약 화면(또는 여권 정보)과 같은지 꼭 확인하세요." + (/^[A-Za-z]{8,}$/.test(r.name.value) ? " (띄어쓰기 없는 이름입니다 — 성/이름 구분도 확인하세요)" : "") }));
+    r.notes.forEach(function (n) { box.appendChild(el("p", { class: "pr-note", text: "ℹ " + n })); });
+    box.appendChild(el("p", { class: "muted small", text: "붙여넣은 글은 저장되지 않으며 채운 뒤 입력창에서 지웠습니다." }));
+  }
+  function clipHasImageOnly(dt) {
+    if (!dt) return false;
+    var text = dt.getData && dt.getData("text/plain");
+    if (text && text.trim()) return false;
+    var items = dt.items ? Array.prototype.slice.call(dt.items) : [], files = dt.files ? Array.prototype.slice.call(dt.files) : [];
+    return items.some(function (it) { return it.kind === "file" && /^image\//.test(it.type); }) || files.some(function (f) { return /^image\//.test(f.type); });
+  }
+  var IMAGE_MSG = "이미지(스크린샷)는 지원하지 않습니다. 예약 화면에서 고객 정보 부분을 마우스로 드래그해 선택하고 Ctrl+C로 복사한 뒤 여기에 붙여넣어 주세요.";
+  function showImageMsg() {
+    var box = $("#pasteResult"); box.hidden = false; box.textContent = "";
+    box.appendChild(el("p", { class: "pr-note pr-image", text: "🖼 " + IMAGE_MSG }));
+    toast("이미지는 지원하지 않습니다. 글자를 드래그해 복사해 주세요.");
+  }
+
+  /* ---------- 이벤트 ---------- */
+  var importMode = "merge";
+  function bind() {
+    $$(".tab").forEach(function (t) { t.addEventListener("click", function () { showView(t.getAttribute("data-view")); }); });
+    $$("[data-goto]").forEach(function (b) { b.addEventListener("click", function () { showView(b.getAttribute("data-goto")); }); });
+    $("#tplSelect").addEventListener("change", function (e) { selectTpl(e.target.value); renderBranch(); renderCustomFields(); updatePreview(); });
+    $("#email").addEventListener("input", updatePreview);
+    $("#email").addEventListener("blur", function (e) { var n = normalizeEmail(e.target.value); if (n !== e.target.value) { e.target.value = n; updatePreview(); } });
+    $$(".std").forEach(function (i) { i.addEventListener("input", updatePreview); });
+    ["#rentDate", "#rentTime"].forEach(function (s) { $(s).addEventListener("input", updatePreview); $(s).addEventListener("change", updatePreview); });
+    $$("[data-q]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var q = b.getAttribute("data-q").split(":"), now = new Date();
+        if (q[0] === "rent") {
+          if (q[1] === "clear") { $("#rentDate").value = ""; $("#rentTime").value = ""; }
+          else $("#rentDate").value = isoDate(new Date(now.getFullYear(), now.getMonth(), now.getDate() + (q[1] === "tomorrow" ? 1 : 0)));
+        }
+        updatePreview();
+      });
+    });
+    // 붙여넣기 자동 채우기
+    var pb = $("#pasteBox");
+    pb.addEventListener("paste", function (e) {
+      if (clipHasImageOnly(e.clipboardData)) { e.preventDefault(); showImageMsg(); return; }
+      setTimeout(function () { if (pb.value.trim()) runAutofill(); }, 0);
+    });
+    pb.addEventListener("drop", function (e) {
+      if (clipHasImageOnly(e.dataTransfer)) { e.preventDefault(); e.stopPropagation(); showImageMsg(); }
+    });
+    $("#pasteRun").addEventListener("click", function () { runAutofill(); });
+    $("#pasteClear").addEventListener("click", function () { pb.value = ""; $("#pasteResult").hidden = true; $("#pasteResult").textContent = ""; pb.focus(); });
+    var tc = $("#titleCase");
+    tc.checked = load(KEYS.titleCase, false) === true;
+    tc.addEventListener("change", function () {
+      save(KEYS.titleCase, tc.checked);
+      var inp = $("#f_이름");
+      if (lastParse && lastParse.name && inp.classList.contains("autofilled")) {
+        var picked = $(".pr-pick[data-k=name]"); var base = picked ? picked.value : lastParse.name.value;
+        inp.value = nameForFill(base); var v = $("#pasteResult li[data-k=name] .pr-val"); if (v) v.textContent = inp.value; updatePreview();
+      }
+    });
+    ["#email", "#f_이름", "#f_계약번호", "#rentDate", "#rentTime"].forEach(function (s) { $(s).addEventListener("input", function (e) { if (e.isTrusted) markAuto($(s), false); }); });
+    $("#clearFields").addEventListener("click", function () {
+      $$(".autofilled").forEach(function (i) { markAuto(i, false); }); lastParse = null; $("#pasteResult").hidden = true; $("#pasteResult").textContent = ""; $("#pasteBox").value = "";
+      $("#email").value = ""; $$(".std").forEach(function (i) { i.value = ""; });
+      ["#rentDate", "#rentTime"].forEach(function (s) { $(s).value = ""; });
+      customVals = {}; renderCustomFields(); updatePreview(); toast("입력 내용을 지웠습니다."); $("#email").focus();
+    });
+    $("#branch").addEventListener("input", function () {
+      var b = branches(); b[langOf(getSelected())] = $("#branch").value; save(KEYS.branch, b); updatePreview();
+    });
+    var ph = $("#phone");
+    ph.value = formatKRPhone(load(KEYS.phone, "") || "");
+    ph.addEventListener("input", function () {
+      var d = ph.value.replace(/\D/g, "").slice(0, 12), f = formatKRPhone(d);
+      if (ph.value !== f) ph.value = f;
+      save(KEYS.phone, d); updatePreview();
+    });
+    $("#copyTo").addEventListener("click", onCopyTo);
+    $("#copySubject").addEventListener("click", onCopySubject);
+    $("#copyBody").addEventListener("click", onCopyBody);
+    $("#copyAll").addEventListener("click", onCopyAll);
+    $("#openMailto").addEventListener("click", onMailto);
+    $("#openOwa").addEventListener("click", onOwa);
+    if (DESK && $("#appBox")) {
+      $("#appBox").hidden = false;
+      if ($("#extBox")) $("#extBox").hidden = true;
+      $("#appOwa").addEventListener("click", onAppOwa);
+      $("#appEml").addEventListener("click", onAppEml);
+    }
+    $("#copyExt").addEventListener("click", onCopyExt);
+    var oh = $("#owaHost");
+    oh.value = owaHostKey();
+    oh.addEventListener("change", function () { save(KEYS.owaHost, OWA_HOSTS[oh.value] ? oh.value : "office"); toast("Outlook 웹 계정: " + OWA_HOSTS[owaHostKey()]); });
+    $("#newTpl").addEventListener("click", function () { openEditor(null); });
+    $("#langFilter").addEventListener("change", function (e) { save(KEYS.filter, e.target.value); renderTemplates(); });
+    $("#edBody").addEventListener("input", updateEditorInfo);
+    $("#edSubject").addEventListener("input", updateEditorInfo);
+    $("#edSave").addEventListener("click", saveEditor);
+    $("#edCancel").addEventListener("click", function () { showView("templates"); });
+    $("#edDelete").addEventListener("click", function () { if (editingId) deleteTpl(editingId).then(function (ok) { if (ok) showView("templates"); }); });
+    $("#exportBtn").addEventListener("click", exportTemplates);
+    $("#shareBtn").addEventListener("click", shareTemplates);
+    $("#importAddBtn").addEventListener("click", function () { importMode = "merge"; $("#importFile").click(); });
+    $("#importReplaceBtn").addEventListener("click", function () { importMode = "replace"; $("#importFile").click(); });
+    $("#importFile").addEventListener("change", function (e) { var f = e.target.files && e.target.files[0]; readFile(f, importMode); e.target.value = ""; });
+    $("#restoreExamples").addEventListener("click", function () { templates = templates.concat(makeExamples()); saveTemplates(); renderTemplates(); toast("예시 템플릿 " + EXAMPLES.length + "개를 추가했습니다."); });
+    $$("[data-dismiss]").forEach(function (b) { b.addEventListener("click", function () { var d = load(KEYS.dismiss, {}) || {}; d[b.getAttribute("data-dismiss")] = true; save(KEYS.dismiss, d); renderCompose(); }); });
+    $("#histSearch").addEventListener("input", renderHistory);
+    $("#clearHistory").addEventListener("click", clearHistory);
+    // 드래그 앤 드롭 가져오기
+    var dz = $("#dropzone"), depth = 0;
+    function hasFiles(e) { return e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], "Files") >= 0; }
+    document.addEventListener("dragenter", function (e) { if (!hasFiles(e)) return; depth++; dz.hidden = false; e.preventDefault(); });
+    document.addEventListener("dragover", function (e) { if (hasFiles(e)) e.preventDefault(); });
+    document.addEventListener("dragleave", function () { depth = Math.max(0, depth - 1); if (!depth) dz.hidden = true; });
+    document.addEventListener("drop", function (e) {
+      if (!hasFiles(e)) return; e.preventDefault(); depth = 0; dz.hidden = true;
+      var f = e.dataTransfer.files[0];
+      if (f && /^image\//.test(f.type)) { if (currentView !== "compose") showView("compose"); showImageMsg(); return; }
+      if (f) { if (currentView !== "templates") showView("templates"); readFile(f, "ask"); }
+    });
+    // 키보드
+    document.addEventListener("keydown", function (e) {
+      if (activeDialogDone) return;
+      if (e.altKey && !e.ctrlKey && !e.metaKey && /^[123]$/.test(e.key)) { e.preventDefault(); showView(["compose", "templates", "history"][+e.key - 1]); return; }
+      if (currentView === "compose" && (e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); if (document.activeElement === $("#pasteBox")) runAutofill(); else onCopyAll(); return; }
+      if (currentView === "editor") {
+        if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "S")) { e.preventDefault(); saveEditor(); }
+        else if (e.key === "Escape") { e.preventDefault(); showView("templates"); }
+      }
+    });
+    // 90일 자동 삭제: 열 때, 포커스, 다시 보일 때, 1시간마다
+    window.addEventListener("focus", purgeOld);
+    window.addEventListener("pageshow", purgeOld);
+    document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible") purgeOld(); });
+    window.addEventListener("storage", function (e) {
+      if (e.key === KEYS.hist) { history = load(KEYS.hist, []); if (currentView === "history") renderHistory(); }
+      if (e.key === KEYS.tpl) { templates = sanitizeStored(load(KEYS.tpl, [])) || []; if (currentView === "compose") renderCompose(); if (currentView === "templates") renderTemplates(); }
+    });
+  }
+
+  var api = window.GimhaeMail = {
+    splitUrls: splitUrls, linkifyHtml: linkifyHtml,
+    version: APP_VERSION, LANGS: LANGS, LANG_ORDER: LANG_ORDER, RETENTION_MS: RETENTION_MS,
+    launch: launch, purgeOld: purgeOld, parseImport: parseImport, importText: importText,
+    formatDT: formatDT, isValidEmail: isValidEmail, emailError: emailError, normalizeEmail: normalizeEmail,
+    maskEmail: maskEmail, extractFields: extractFields, fillText: fillText, formatKRPhone: formatKRPhone,
+    parsePasted: parsePasted, runAutofill: runAutofill, titleCaseName: titleCaseName,
+    buildExtPayload: buildExtPayload, EXT_MARKER: EXT_MARKER, EXT_END: EXT_END,
+    buildMailto: buildMailto, buildOwaUrl: buildOwaUrl, openWindow: openWindow, onAppOwa: onAppOwa, OWA_URL_BUDGET: OWA_URL_BUDGET, templatesJson: templatesJson, compute: function () { return compute(); },
+    storageOk: function () { return storageOk; }
+  };
+  $("#footer").textContent = "안내 메일 작성 v" + APP_VERSION + " · 인터넷 연결 없이 동작 · 데이터는 이 PC의 이 브라우저에만 저장됩니다.";
+  bind();
+  purgeOld();
+  setInterval(purgeOld, PURGE_INTERVAL_MS);
+  showView("compose");
+})();
+</script>
+</body>
+</html>
